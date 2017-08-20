@@ -83,7 +83,3 @@ production:
   database: Internshipin_production    
   username: Internshipin
   password: <%= ENV['INTERNSHIPIN_DATABASE_PASSWORD'] %>
-  #host: ec2-107-20-188-239.compute-1.amazonaws.com
-  #database: d7jprejna13vf6
-  #username: djbtuxidvnqqzb
-  #password: 6b2d5c00f2704c38052d38b83b55754a8f6b8a6a7530f64d9dfcc50336c055ba
