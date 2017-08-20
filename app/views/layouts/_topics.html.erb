@@ -1,0 +1,30 @@
+<h3>Perguntas</h3>
+
+<h4>FILTRAR POR:</h4>
+
+<%= simple_form_for @topic do |f| %>
+	<div class="col-md-6" style="margin-top: 10px; text-align: left;">
+		<%= f.association :category, label: 'Categoria', collection: @categories, label_method: :nome, input_html: {class: "form-control col-md-9"} %>
+	</div>
+	<div class="col-md-6" style="margin-top: 10px; text-align: left;">
+		<%= f.association :subcategory, label: 'Subcategoria', collection: @subcategories, label_method: :nome, input_html: { class: "form-control col-md-9" } %>
+	</div>
+	<div class="col-md-12" style="margin-bottom: 20px; margin-top: 10px;">
+		<%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+		<%= f.button :submit, "PESQUISAR", class: "btn btn-success botaoPesquisarDuvida" %>
+	</div>
+<% end %>
+<div class="col-md-12">
+	<% @topics.each do |t| %>
+		<div class="box-topics">
+			<div class="data pull-left">
+				<%= image_tag('user-default') %>
+				<p><%= t.created_at.strftime("%d-%m-%Y") %></p>
+			</div>
+			<p><b><%= t.user.nome %></b></p>
+			<p><%= link_to t.titulo, show_topic_dashboard_path(t) %></p>
+			<p><%= t.descricao %></p>
+			<p><%#= t.subcategory.nome %></p>
+		</div>
+	<% end %>
+</div>

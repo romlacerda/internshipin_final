@@ -1,0 +1,17 @@
+<%= simple_form_for(@topic) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :titulo %>
+    <%= f.input :descricao %>
+    <%= f.association :user %>
+    <%= f.input :status %>
+    <%= f.input :tipo %>
+    <%= f.association :category %>
+    <%= f.association :subcategory %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default navbar-inverse">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header col-md-3">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <%= image_tag("logo-small", :class => "img-responsive") %>
+      </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <li><%= link_to "Dúvidas", root_path %><div class="activeornot"></div></li>
+        <!-- <li><%#= link_to "Exercícios", root_path %><div class="activeornot"></div></li> -->
+        <div class="fast pull-right" style="margin-top: 10px;">
+        <% if user_signed_in? %>
+          <%= link_to(image_tag("notificacao.jpg"), style: "margin-right: 40px;")  %>
+          <%= link_to(image_tag("logout.png"), destroy_user_session_path, :method => :delete)  %>
+          <a href="#">Sair</a>
+        <% end %>
+        </div>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>

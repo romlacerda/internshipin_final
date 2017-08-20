@@ -1,0 +1,17 @@
+	<section id="searchBar" class="col-md-12" style="padding: 0;">
+		<div class="col-md-12" style="padding: 0;">
+			<div id="search">
+				<div class="col-md-6" id="search-area">
+					<%= form_tag(dashboard_path) do %>
+					<div class="col-md-3" style="margin-top: 10px; text-align: right;">
+		              	<%= label_tag "Busca", nil, class: "label-login" %>
+		            </div>
+		            <div class="col-md-9">	
+		            	<%= text_field_tag :matricula, "", class: "form-control col-md-9" %>
+		            </div>
+		              <%#= submit_tag "Buscar", class: "btn btn-success" %>
+		          <% end %>
+				</div>
+			</div>
+		</div>
+	</section>

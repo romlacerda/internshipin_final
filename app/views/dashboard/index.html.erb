@@ -1,0 +1,23 @@
+	<section id="questionMake" class="col-md-12">
+		<div class="col-md-8 col-md-offset-2 padraoBox">
+			<div id="facaASuaPergunta" class="col-md-12">
+				<h3>Qual é a sua dúvida?</h2>
+    				<%= render partial: "layouts/question" %>
+			</div>
+			
+		</div>
+	</section>
+
+	<section id="topicos" class="col-md-12">
+		<div class="col-md-8 col-md-offset-2 padraoBox">
+			<div id="facaASuaPergunta" class="col-md-12">
+    			<%= render partial: "layouts/topics" %>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#sidebar-dashboard").height($("#mainBody").height());
+	});
+	</script>
