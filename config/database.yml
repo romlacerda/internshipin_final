@@ -80,6 +80,9 @@ test:
 #
 production:
   <<: *default
+    database: internshipin_production    
+  username: internshipin
+  password: <%= ENV['INTERNSHIPIN_DATABASE_PASSWORD'] %>
   #host: ec2-107-20-188-239.compute-1.amazonaws.com
   #database: d7jprejna13vf6
   #username: djbtuxidvnqqzb
