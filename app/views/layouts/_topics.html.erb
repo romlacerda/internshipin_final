@@ -17,14 +17,16 @@
 <div class="col-md-12">
 	<% @topics.each do |t| %>
 		<div class="box-topics">
-			<div class="data pull-left">
-				<%= image_tag('user-default') %>
+			<div class="data pull-left col-md-3">
+				<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
 				<p><%= t.created_at.strftime("%d-%m-%Y") %></p>
 			</div>
+			<div class="text pull-left col-md-9">
 			<p><b><%= t.user.nome %></b></p>
-			<p><%= link_to t.titulo, show_topic_dashboard_path(t) %></p>
-			<p><%= t.descricao %></p>
-			<p><%#= t.subcategory.nome %></p>
+				<p><%= link_to t.titulo, show_topic_dashboard_path(t) %></p>
+				<p><%= t.descricao %></p>
+				<p><%#= t.subcategory.nome %></p>
+			</div>
 		</div>
 	<% end %>
 </div>

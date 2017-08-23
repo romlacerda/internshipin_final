@@ -101,6 +101,10 @@ p{
 		margin: 0 !important;
 		background-image: asset-url('fundo-alunos');
 		background-size: 100%;
+
+		@media (max-width: 900px) {
+			display: none;
+		}
 	}	
 	#login {
 
@@ -374,7 +378,7 @@ p{
 		border: 1px solid #a2b6bc;
 		padding: 20px;
 		margin-bottom: 10px;
-		min-height: 115px;
+		min-height: 165px;
 		p {
 			margin-bottom: 0 !important;
 		}
