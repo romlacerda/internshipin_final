@@ -16,12 +16,14 @@
       <ul class="nav navbar-nav">
 
         <li><%= link_to "Dúvidas", root_path %><div class="activeornot"></div></li>
+        <li><%= link_to "Projetos", projects_path %><div class="activeornot"></div></li>
+
         <!-- <li><%#= link_to "Exercícios", root_path %><div class="activeornot"></div></li> -->
         <div class="fast pull-right" style="margin-top: 10px;">
         <% if user_signed_in? %>
           <%= link_to(image_tag("notificacao.jpg"), style: "margin-right: 40px;")  %>
           <%= link_to(image_tag("logout.png"), destroy_user_session_path, :method => :delete)  %>
-          <a href="#">Sair</a>
+          <%= link_to("Sair", destroy_user_session_path, :method => :delete) %>
         <% end %>
         </div>
       </ul>

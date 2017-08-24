@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820034113) do
+ActiveRecord::Schema.define(version: 20170824000311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20170820034113) do
     t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.integer "max_users"
+    t.string "titulo"
+    t.text "descricao"
+    t.string "prazo"
+    t.decimal "total_hours"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "subcategories", id: :serial, force: :cascade do |t|
@@ -79,6 +91,7 @@ ActiveRecord::Schema.define(version: 20170820034113) do
 
   add_foreign_key "answers", "topics"
   add_foreign_key "answers", "users"
+  add_foreign_key "projects", "users"
   add_foreign_key "subcategories", "categories"
   add_foreign_key "topics", "categories"
   add_foreign_key "topics", "subcategories"

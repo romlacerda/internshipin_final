@@ -1,0 +1,16 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :max_users %>
+    <%= f.input :titulo %>
+    <%= f.input :descricao %>
+    <%= f.input :prazo %>
+    <%= f.input :total_hours %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

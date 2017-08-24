@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Max users:</strong>
+  <%= @project.max_users %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @project.titulo %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @project.descricao %>
+</p>
+
+<p>
+  <strong>Prazo:</strong>
+  <%= @project.prazo %>
+</p>
+
+<p>
+  <strong>Total hours:</strong>
+  <%= @project.total_hours %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @project.user %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

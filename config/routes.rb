@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :projects do
+  	get "projetos" => "projects#index"
+  end
   resources :topics do
   	member do
   		get :close
@@ -15,9 +18,9 @@ Rails.application.routes.draw do
 		   get "perfil/alterar" => "devise/registrations#edit", as: "perfil_edit_path"
 
 	end
-
 	get "dashboard/perfil" => "users#show"
 	get "dashboard" => "dashboard#index", :as => :dashboard
 	get "dashboard/topico/:id" => "dashboard#topic", :as => :show_topic_dashboard
+
 	#perfil put "perfil" => "devise/registrations#edit"
 end

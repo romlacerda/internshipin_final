@@ -19,12 +19,12 @@
 		<div class="box-topics">
 			<div class="data pull-left col-md-3">
 				<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
-				<p><%= t.created_at.strftime("%d-%m-%Y") %></p>
+				<p class="text-center"><%= t.created_at.strftime("%d/%m/20%y") %></p>
 			</div>
 			<div class="text pull-left col-md-9">
 			<p><b><%= t.user.nome %></b></p>
 				<p><%= link_to t.titulo, show_topic_dashboard_path(t) %></p>
-				<p><%= t.descricao %></p>
+				<p id="corpo-topic"><%= truncate(t.descricao, :length => 120) %></p>
 				<p><%#= t.subcategory.nome %></p>
 			</div>
 		</div>

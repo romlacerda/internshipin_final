@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  max_users: 1
+  titulo: MyString
+  descricao: MyText
+  prazo: MyString
+  total_hours: 
+  user: one
+
+two:
+  max_users: 1
+  titulo: MyString
+  descricao: MyText
+  prazo: MyString
+  total_hours: 
+  user: two
