@@ -17,10 +17,59 @@
 //= require bootstrap
 
 $(document).ready(function() {
+	$("#topic_subcategory_id").html('');
+	$("#topic_category_id").on('change', function() {
+		$("#topic_subcategory_id").prop('disabled', false);
+
+		var categoria = $("#topic_category_id").val();
+		populaSelectSubcategoria(categoria);
+	});
+
+
+
 });
 
 
 function abrirModalDuvidaEnviada() {
-	$("#botaoEnviarDuvida").modal("show");
+
+	var selectCategoria = $("#topic_category_id").val();
+	var selectSubcategoria = $("#topic_subcategory_id").val();
+	var selectTitulo = $("#topic_titulo").val();
+	var selectDescricao = $("#topic_descricao").val();
+
+	if (selectCategoria != "" && selectSubcategoria != "" && 
+		selectTitulo != "" && selectDescricao != "") {
+		$("#myModal").modal("show");
+	} else {
+		console.log('Preencha os campos')
+	} 
 }
 
+
+function populaSelectSubcategoria(category_id) {
+	$.ajax({
+		type: 'POST',
+		dataType: 'json',
+		url: '/subcategories/getByCategoryId',
+		data: { category_id: category_id },
+		success: function(result) {
+			console.log(result);
+			var options = "";
+			$("#topic_subcategory_id").html();
+			$(result).each(function(index, item) {
+				if(item.category_id == category_id) {
+					options += '<option value='+ item.id + '>' + item.nome + '</option>';
+				}
+			});
+			$("#topic_subcategory_id").empty().append(options);
+		}
+	})
+}
+
+function fecharModalDuvidaEnviada() {
+	$("#myModal").modal("hide");
+}
+
+function responderResposta(answer) {
+	$("#caixaDeResposta_" + answer).show();
+}

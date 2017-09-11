@@ -1,0 +1,4 @@
+function responderResposta(answer) {
+	$("#teste").append("<%= escape_javascript(render :partial => 'answerAnswer', locals: { answer: @answer, user: @user, topic: @topic }) %>");
+}
+

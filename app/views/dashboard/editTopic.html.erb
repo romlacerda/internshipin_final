@@ -1,10 +1,9 @@
 <section id="topicPage">
 <div class="col-md-12">
-	<div class="col-md-8 col-md-offset-2">
-	<div class="col-md-12 boxBotaoVoltar">
+	<div class="col-md-8 col-md-offset-2 boxBotaoVoltar">
 		<%= link_to("< VOLTAR AS DÚVIDAS" , dashboard_path, :class => "btn btn-default pull-right btn1") %>
 	</div>
-	<div class="col-md-12 padraoBox">
+	<div class="col-md-8 col-md-offset-2 padraoBox">
 		<div class="col-md-12" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
 			<div class="data pull-left col-md-3">
 				<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
@@ -31,13 +30,13 @@
 
 	<!-- Respostas (Answers) -->
 	<div id="answersTopic">
-	<div class="col-md-12 resetPadding">
+	<div class="col-md-8 col-md-offset-2 resetPadding">
 		<div class="answersTopic">
 			<h3>Outras Respostas (1):</h3>
 		</div>
 	</div>
 	<% @answers.each do |a| %>
-	<div class="col-md-12 padraoBox">
+	<div class="col-md-8 col-md-offset-2 padraoBox">
 		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
 			<div class="data pull-left col-md-2">
 				<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
@@ -51,52 +50,17 @@
 				<div class="acoes pull-right">
 					<%= image_tag('vote-sim') %>
 					<%= image_tag('vote-nao') %>
-					<%= link_to image_tag('responder'), {:remote => true}, :onclick => "responderResposta(" + a.id.to_s + ")", :class => "responder" %>
+					<%= image_tag('responder') %>
 				</div>
 				<p><%#= t.subcategory.nome %></p>
 			</div>
-		</div>
-	</div>
-
-		<% @answersChild.each do |aC| %>
-			<% if (a.id == aC.answer_id) %>
-				<div class="col-md-12">
-					<div class="pull-left">
-						<p><%= aC.descricao %></p> 
-					</div>
-					<div class="pull-right">
-						<p>@<%= link_to(aC.user.nome, :controller => "users", :action => "show") %></p> 
-					</div>
-				</div>
-			<% end %>
-		<% end %>
-
-	<div class="col-md-9 padraoBox pull-right caixaResposta" style="display: none;" id="caixaDeResposta_<%= a.id %>">
-		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
-			<div class="col-md-12">
-				<%= simple_form_for @answer do |an| %>
-					<%= an.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px;" }, :label => false %>
-					<%= an.input :user_id, as: :hidden, input_html: { value: @user.id } %>
-					<%= an.input :topic_id, as: :hidden, input_html: { value: nil } %>
-					<%= an.input :answer_id, as: :hidden, input_html: { value: a.id } %>
-					<%= an.button :submit, "RESPONDER", class: "btn btn-success botaoEnviarDuvida", :controller => "answers" %>
-				<% end %>
-			</div>
 		</div>	
 	</div>
-
-	<!-- teste -->
-	
-
 	<% end %>
-	<div id="teste">
-		
-	</div>
 
 
 	<!-- Caixa de Resposta -->
-	<% if (@topic.status != 1) %>
-	<div class="col-md-12 padraoBox">
+	<div class="col-md-8 col-md-offset-2 padraoBox">
 		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
 			<div class="col-md-12">
 				<%= simple_form_for @answer do |a| %>
@@ -108,11 +72,10 @@
 			</div>
 		</div>	
 	</div>
-	<% end %>
 		
 	</div>
 	</div>
-</div>
+
 </div>
 </section>
 

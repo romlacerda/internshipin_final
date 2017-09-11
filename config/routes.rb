@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   	end
   end	
   resources :subcategories
+
   resources :categories
   resources :answers
   	devise_for :users
@@ -21,6 +22,11 @@ Rails.application.routes.draw do
 	get "dashboard/perfil" => "users#show"
 	get "dashboard" => "dashboard#index", :as => :dashboard
 	get "dashboard/topico/:id" => "dashboard#topic", :as => :show_topic_dashboard
+	get "dashboard/topico/editar/:id" => "dashboard#editTopic", :as => :edit_topic_dashboard
+	get "dashboard/answerBoxShow" => "dashboard#answer_box_show"
+	get "dashboard/projeto/novo" => "dashboard#newProject", :as => :new_project_dashboard 
+	get "dashboard/projetos" => "dashboard#projects", :as => :projects_dashboard
+  	post "subcategories/getByCategoryId"
 
 	#perfil put "perfil" => "devise/registrations#edit"
 end

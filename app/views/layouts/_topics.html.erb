@@ -22,8 +22,18 @@
 				<p class="text-center"><%= t.created_at.strftime("%d/%m/20%y") %></p>
 			</div>
 			<div class="text pull-left col-md-9">
-			<p><b><%= t.user.nome %></b></p>
+				<div class="col-md-8" style="padding: 0; margin: 0;">
+					<p><b><%= t.user.nome %></b></p>
+				</div>
+				<div class="col-md-4" style="padding: 0; margin: 0;">
+					<div class="pull-right">
+					<%#= link_to("Editar", edit_topic_dashboard_path(t)) %>
+					<%= t.status == 0 ? image_tag('aberto') : image_tag('finalizado') %>
+				</div>
+				</div>
 				<p><%= link_to t.titulo, show_topic_dashboard_path(t) %></p>
+				
+				
 				<p id="corpo-topic"><%= truncate(t.descricao, :length => 120) %></p>
 				<p><%#= t.subcategory.nome %></p>
 			</div>

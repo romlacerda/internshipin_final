@@ -1,0 +1,18 @@
+<%= render partial: 'layouts/filterBar' %>
+
+<section id="projetoNovo" class="col-md-12">
+	<div class="col-md-8 col-md-offset-2 padraoBox">
+		<div id="facaASuaPergunta" class="col-md-12">
+			<h3>Cadastre o seu projeto</h3>
+			<%= simple_form_for @project do |f| %>
+				<div class="col-md-12" style="margin-top: 10px;">
+					<%= f.input :titulo, required: true, input_html: { class: "form-control col-md-9" } %>
+				</div>
+				<div class="col-md-12" style="margin-top: 10px;">
+					<%= f.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9" } %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</section>
+

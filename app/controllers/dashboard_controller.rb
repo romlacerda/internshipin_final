@@ -18,6 +18,34 @@ def topic
 	@subcategories = Subcategory.all
 	@answer = Answer.new
 	@answers = Answer.where(:topic_id => @topic.id)
+	@answersChild = Answer.all
+end
+
+def editTopic
+	@topic = Topic.find_by_id(params[:id])
+	@user = current_user
+	@categories = Category.all
+	@subcategories = Subcategory.all
+	@answer = Answer.new
+	@answers = Answer.where(:topic_id => @topic.id)	
+end
+
+def answer_box_show
+	@answer = Answer.new
+	@answerFather = Answer.find_by_id(params[:id])
+	@user = current_user
+	respond_to do |format|
+		format.js
+	end
+end
+
+def projects
+	@user = current_user
+end
+
+def newProject
+	@user = current_user
+	@project = Project.new
 end
 
 end

@@ -61,7 +61,7 @@ table {
 }
 
 /* Geral */
-
+.modal-footer {border-top: 0 !important;}
 h2 {
 	font-family: 'Arimo', sans-serif !important;
 	font-weight: bold !important;
@@ -202,7 +202,21 @@ p{
 
 	#profile-photo {
 		padding: 0 !important;
+
+
 	}
+	
+	#change-photo {
+		position: absolute;
+	}
+
+	#profile-photo:hover + #change-photo {
+			position: absolute;
+		    background-color: black;
+		    width: 100%;
+		    height: 20%;
+		    background-color: rgba(0,0,0,0.3);
+		}
 
 	#profile-info {
 		margin-top: 20px;
@@ -463,7 +477,7 @@ p{
 
 .data {
 	img {
-	    border: 1px solid #a2b6bc;
+	    //border: 1px solid #a2b6bc;
 	}
 	p {
 		margin-top: 0px;
@@ -476,4 +490,19 @@ p{
 
 #corpo-topic {
 	margin-top: 10px;
+}
+
+.botaoModalPrimary {
+	width: 100%;
+    background-color: #33cc99 !important;
+    border: none !important;
+    height: 40px;
+    color: #fff !important; 
+}
+
+.modalPadrao {
+	h3 {font-weight: bold; color: #336666;}
+	p {
+		color: #999999;
+	}
 }

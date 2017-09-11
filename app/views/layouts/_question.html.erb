@@ -1,10 +1,12 @@
+<%= render partial: "dashboard/duvidaEnviada" %>
+
 <div class="col-md-12" style="padding: 0;">
-	<%= simple_form_for @topic do |f| %>
+	<%= simple_form_for @topic, :url => {:controller => 'topics', :action => 'create', :remote => true}, :method => :post do |f| %>
 		<div class="col-md-6" style="margin-top: 10px; text-align: left;">
 			<%= f.association :category, label: 'Categoria', collection: @categories, label_method: :nome, input_html: {class: "form-control col-md-9", placeholder: "Categoria"} %>
 		</div>
 		<div class="col-md-6" style="margin-top: 10px; text-align: left;">
-			<%= f.association :subcategory, label: 'Subcategoria', collection: @subcategories, label_method: :nome, input_html: { class: "form-control col-md-9", placeholder: "Subcategoria" } %>
+			<%= f.association :subcategory, label: 'Subcategoria', collection: @subcategories, label_method: :nome, :disabled => true, input_html: { class: "form-control col-md-9", placeholder: "Subcategoria" } %>
 		</div>
 		<div class="col-md-12" style="margin-top: 10px;">
 			<%= f.input :titulo, required: true, input_html: { class: "form-control col-md-9" } %>
@@ -18,3 +20,4 @@
 		</div>
 	<% end %>
 </div>
+

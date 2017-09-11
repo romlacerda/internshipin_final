@@ -1,0 +1,12 @@
+<div class="col-md-9 padraoBox pull-right">
+		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
+			<div class="col-md-12">
+				<%= simple_form_for @answer do |a| %>
+					<%= a.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px;" }, :label => false %>
+					<%= a.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+					<%#= a.input :answer_id, as: :hidden, input_html: { value: @answerFather.id } %>
+					<%= a.button :submit, "RESPONDER", class: "btn btn-success botaoEnviarDuvida", :controller => "answers" %>
+				<% end %>
+			</div>
+		</div>	
+	</div>

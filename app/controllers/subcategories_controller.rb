@@ -12,6 +12,11 @@ class SubcategoriesController < ApplicationController
   def show
   end
 
+  def getByCategoryId
+    @subcategory = Subcategory.find_by_category_id(params[:category_id])
+    render json: @subcategory
+  end
+
   # GET /subcategories/new
   def new
     @subcategory = Subcategory.new
