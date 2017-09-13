@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require bootstrap-datepicker
 
 $(document).ready(function() {
 	$("#topic_subcategory_id").html('');

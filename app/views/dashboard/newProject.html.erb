@@ -2,17 +2,54 @@
 
 <section id="projetoNovo" class="col-md-12">
 	<div class="col-md-8 col-md-offset-2 padraoBox">
-		<div id="facaASuaPergunta" class="col-md-12">
+		<div id="facaASuaPergunta" class="col-md-12 cadastrarProjeto">
 			<h3>Cadastre o seu projeto</h3>
 			<%= simple_form_for @project do |f| %>
 				<div class="col-md-12" style="margin-top: 10px;">
-					<%= f.input :titulo, required: true, input_html: { class: "form-control col-md-9" } %>
+					<p>TÍTULO:</p>
+					<%= f.input :titulo, required: true, label: false, input_html: { class: "form-control col-md-9" } %>
 				</div>
 				<div class="col-md-12" style="margin-top: 10px;">
-					<%= f.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9" } %>
+					<p>DESCRIÇÃO:</p>
+					<%= f.input :descricao, as: :text, required: true, label: false, input_html: { class: "form-control col-md-9" } %>
+				</div>
+				<div class="col-md-12" style="margin-top: 30px;">
+					<p>DATA DO PROJETO: </p>
+					<div class="col-md-6 breakPaddingInput">
+						<%= f.input :datainicio, as: :string, required: true, label: false, input_html: { class: "datepicker form-control col-md-12" } %>	
+					</div>
+					<div class="col-md-6 breakPaddingInput">
+						<%= f.input :datafim, as: :string, required: true, label: false, input_html: {class: "datepicker form-control col-md-12"}, "data-provide" => 'datepicker-inline' %>	
+					</div>
+				</div>
+				<div class="col-md-12" style="margin-top: 30px;">
+					<div class="col-md-6 breakPaddingInput">
+						<p>NÚMERO DE PARTICIPANTES</p>
+						<div class="col-md-12 numParticipantesBox breakPaddingInput">
+							<%= f.input :max_users, required: true, label: false, input_html: { class: "form-control col-md-12" } %>		
+						</div>
+					</div>
+					<div class="col-md-6 breakPaddingInput">
+						<div class="col-md-12 breakPaddingInput">
+							<p>STATUS</p>
+							<%= f.input :status, required: true, label: false, input_html: { class: "form-control col-md-12" } %>
+						</div>
+						<div class="col-md-12 breakPaddingInput" style="margin-top: 30px;">
+							<p>ANEXOS:</p>
+						</div>
+					</div>
+					<%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+					<%= f.button :submit, "CADASTRAR", class: "btn btn-success botaoEnviarDuvida", :onclick => "abrirModalDuvidaEnviada()", :id => "botaoEnviarDuvida" %>
 				</div>
 			<% end %>
 		</div>
 	</div>
 </section>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+  	$('.datepicker').datepicker({
+  		format: "dd-mm-yyyy"
+    });
+  });
+</script>

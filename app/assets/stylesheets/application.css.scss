@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require bootstrap
+ *= require bootstrap-datepicker3
  */
 
 html, body, div, span, applet, object, iframe,
@@ -506,3 +507,42 @@ p{
 		color: #999999;
 	}
 }
+
+.cadastrarProjeto {
+	padding-bottom: 25px !important;
+
+	p {
+		font-family: 'Arimo', sans-serif;
+		font-weight: bold;
+		color: #669999;
+	}
+}
+
+.breakPaddingInput {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+
+
+
+.datepicker-days{
+	background-color: #eef2f4 !important;
+	border-radius: 5px;
+}
+
+.listaProjetos p{
+	font-weight: bold;
+}
+
+.box-projects {
+		border-radius: 10px;
+		border: 1px solid #a2b6bc;
+		padding: 20px;
+		margin-bottom: 10px;
+		min-height: 170px;
+		background-color: #fff;
+		p {
+			margin-bottom: 0 !important;
+		}
+}	

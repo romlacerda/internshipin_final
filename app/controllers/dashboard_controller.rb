@@ -41,11 +41,17 @@ end
 
 def projects
 	@user = current_user
+	@project = Project.new
+	@projects = Project.order('created_at DESC')
+
 end
 
 def newProject
 	@user = current_user
 	@project = Project.new
+end
+
+def project
 end
 
 end
