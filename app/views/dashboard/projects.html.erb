@@ -1,48 +1,56 @@
 <%= link_to"+ Novo Projeto", new_project_dashboard_path %>
-<section id="topicos" class="col-md-12">
+<section class="col-md-12">
+	<div class="col-md-8 col-md-offset-2" style="padding-left: 0;">
+		<h3>Projetos Cadastrados</h3>
+	</div>
 	<div class="col-md-8 col-md-offset-2 padraoBox">
-		<div id="facaASuaPergunta" class="col-md-12">
-			<%= simple_form_for @project do |f| %>
-				<div class="col-md-6" style="margin-top: 10px; text-align: left;">
-					<p>DATA INÍCIO:</p>
-					<%= f.input :datainicio, label: false, input_html: {class: "form-control col-md-9"} %>
-				</div>
-				<div class="col-md-6" style="margin-top: 10px; text-align: left;">
-					<p>DATA FINAL:</p>
-					<%= f.input :datafim, label: false, input_html: { class: "form-control col-md-9" } %>
-				</div>
-				<div class="col-md-12" style="margin-bottom: 20px; margin-top: 10px;">
-					<%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>
-					<%= f.button :submit, "PESQUISAR", class: "btn btn-success botaoPesquisarDuvida" %>
-				</div>
-			<% end %>
-
-		</div>
+		<%= simple_form_for @project do |f| %>
+			<div class="col-md-6" style="margin-top: 10px; text-align: left;">
+				<p class="pInputs">DATA INÍCIO:</p>
+				<%= f.input :datainicio, label: false, input_html: {class: "form-control col-md-9"} %>
+			</div>
+			<div class="col-md-6" style="margin-top: 10px; text-align: left;">
+				<p class="pInputs">DATA FINAL:</p>
+				<%= f.input :datafim, label: false, input_html: { class: "form-control col-md-9" } %>
+			</div>
+			<div class="col-md-12" style="margin-bottom: 20px; margin-top: 10px;">
+				<%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+				<%= f.button :submit, "PESQUISAR", class: "btn btn-success botaoPesquisarDuvida" %>
+			</div>
+		<% end %>
 	</div>
 </section>
 
-<section id="topicos" class="col-md-12">
-	<div id="facaASuaPergunta" class="col-md-9 col-md-offset-1">
+<section class="col-md-12" style="margin-top: 15px;">
+	<div class="col-md-8 col-md-offset-2 padraobox" style="padding-left: 0 !important; padding-right: 0 !important;">
 		<% @projects.each do |p| %>
 			<div class="box-projects">
 				<div class="dataProjeto pull-left col-md-3">
 					<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
 					<p class="text-center">
-						<b><%= p.user.nome %></b>
+						<b style="padding: 10px 0;"><%= p.user.nome %></b>
+						<%= p.status == 0 ? image_tag('aberto') : image_tag('finalizado') %>
 					</p>
 				</div>
 				<div class="text pull-left col-md-9">
-					<div class="col-md-8" style="padding: 0; margin: 0;">
-					</div>
 					<div class="col-md-4" style="padding: 0; margin: 0;">
 						<div class="pull-right">
 						<%#= link_to("Editar", edit_topic_dashboard_path(t)) %>
-						<%= p.status == 0 ? image_tag('aberto') : image_tag('finalizado') %>
 					</div>
 					</div>
-					<p><%= link_to p.titulo, show_project_dashboard_path(p) %></p>
+					<h4><%= link_to p.titulo, show_project_dashboard_path(p) %></h4>
+					<p>DATA INÍCIO: <%= p.datainicio %></p>
+					<p>DATA FINAL: <%= p.datafim %></p>
 					<p id="corpo-topic"><%= truncate(p.descricao, :length => 120) %></p>
 					<p><%#= t.subcategory.nome %></p>
+					<div class="infos-bottom">
+						<div class="col-md-6" style="padding-left: 0 !important;">
+							<p class="pLaranja pull-left">INSCRITOS: </p><b class="pull-left"> 0 ALUNOS</b>
+						</div>
+						<div class="col-md-6" style="padding-left: 0 !important;">
+							<p class="pLaranja pull-left">LIMITE: </p><b class="pull-left"> 8 INTEGRANTES</b>
+						</div>
+					</div>
 				</div>
 			</div>
 		<% end %>

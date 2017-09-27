@@ -1,14 +1,58 @@
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
+<section>
+  <div class="col-md-12" id="login-page">
+    <div class="col-md-7" id="fundo-cadastrar"></div>
+    <div class="col-md-5" id="login">
+      <div class="col-md-10 col-md-offset-1" style="margin-top: 15%;">
+          <h3 class="text-left">Cadastro</h3>
 
-        <%= f.input :matricula,  required: true, autofocus: true, label: "Matrícula:"%>
-        <%= f.input :nome,  required: true, autofocus: true, label: "Nome:"%>
-        <%= f.input :email, required: true, label: "E-mail:" %>
-        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} seis caracteres no minimo" if @minimum_password_length), label: "Senha:" %>
-        <%= f.input :password_confirmation, required: true, label: 'Confirme sua senha' %>
+	      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+	        <%= f.error_notification %>
 
+            <div class="col-md-6">
+              <%= f.label "Matrícula", class: "label-login" %>
+              <%= f.input :matricula, autofocus: true, placeholder: "Ex: 201400123", input_html: { class: "form-control", value: "" }, label: false %>
+            </div>
 
+			<div class="col-md-6">
+              <%= f.label "CPF", class: "label-login" %>
+              <%= f.input :cpf, autofocus: true, placeholder: "", input_html: { class: "form-control", value: "" }, label: false %>
+            </div>
 
-        <%= f.button :submit, "Enviar", :class=> "btn btn-primary" %>
+            <div class="col-md-6">
+              <%= f.label "Nome", class: "label-login" %>
+              <%= f.input :nome, autofocus: true, placeholder: "", input_html: { class: "form-control", value: "" }, label: false, :disabled => true %>
+            </div>
 
-      <% end %>
+            <div class="col-md-6">
+              <%= f.label "Sobrenome", class: "label-login" %>
+              <%= f.input :sobrenome, autofocus: true, placeholder: "", input_html: { class: "form-control", value: "" }, label: false, :disabled => true %>
+            </div>
+
+            <div class="col-md-6">
+              <%= f.label "Email", class: "label-login" %>
+              <%= f.input :email, autofocus: true, placeholder: "", input_html: { class: "form-control", value: "" }, label: false %>
+            </div>
+
+            <div class="col-md-6">
+              <%= f.label "Senha", class: "label-login" %>
+              <%= f.input :password, autofocus: true, placeholder: "", input_html: { class: "form-control", value: "" }, label: false %>
+            </div>
+            <div class="col-md-6">
+              <%= f.label "Confirmar Senha", class: "label-login" %>
+              <%= f.input :password_confirmation, autofocus: true, placeholder: "", input_html: { class: "form-control", value: "" }, label: false %>
+            </div>
+            <div class="col-md-12">
+              <%= f.submit "Cadastrar >", class: "btn btn-success" %>
+            </div>
+          <% end %>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  function abrirModalCadastro() {
+    $("#modalCadastro").modal("show");
+  };
+</script>

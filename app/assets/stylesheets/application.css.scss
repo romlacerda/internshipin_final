@@ -106,6 +106,17 @@ p{
 		@media (max-width: 900px) {
 			display: none;
 		}
+	}
+	#fundo-cadastrar {
+		background-color: black;
+		height: 100vh;
+		margin: 0 !important;
+		background-image: asset-url('bg-cadastrar');
+		background-size: 100%;
+
+		@media (max-width: 900px) {
+			display: none;
+		}
 	}	
 	#login {
 
@@ -540,9 +551,26 @@ p{
 		border: 1px solid #a2b6bc;
 		padding: 20px;
 		margin-bottom: 10px;
-		min-height: 170px;
+		min-height: 210px;
 		background-color: #fff;
 		p {
 			margin-bottom: 0 !important;
 		}
+		h4{
+			font-size: 25px;
+			font-weight: bold;
+			color: #d5652c;
+		}
+		a {
+			color: #d5652c;
+
+		}
 }	
+
+.pLaranja {
+	color: #d5652c;
+	font-weight: bold;
+}
+.infos-bottom {margin-top: 25px;}
+
+.pInputs {font-weight: bold;color: #75868e;}
