@@ -26,7 +26,9 @@ $(document).ready(function() {
 		populaSelectSubcategoria(categoria);
 	});
 
-
+	$("#botaoAtivarFiltros").on("click", function() {
+		$("#caixaFiltros").show();
+	});
 
 });
 

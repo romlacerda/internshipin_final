@@ -15,25 +15,32 @@
 					<%= f.input :titulo, :label => false, input_html: {:class=> "form-control col-md-12"} %>
 				</div>
 				<div class="col-md-3">
-					<%= button_to "FILTROS", nil, :class=> "btn btn-success bigDefaultButton" %>
+					<%= button_to "FILTROS", nil, :class=> "btn btn-success bigDefaultButton", :id => "botaoAtivarFiltros" %>
 				</div>
 			</div>
 			<hr>
-
-
-			<div class="col-md-6">
-				<div class="col-md-12" style="text-align: left; padding-left: 0; padding-right: 0;">
-					<p class="pInputs">DATA INÍCIO:</p>
-					<%= f.input :datainicio, as: :string, required: false, label: false, input_html: { class: "datepicker form-control col-md-12" } %>
+			<div class="col-md-12" id="caixaFiltros" style="display: none;">
+				<div class="col-md-6" style="border-right: 1px solid #a2b6bc;" >
+					<div class="col-md-12" style="text-align: left; padding-left: 0; padding-right: 0;">
+						<p class="pInputs">DATA INÍCIO:</p>
+						<%= f.input :datainicio, as: :string, required: false, label: false, input_html: { class: "datepicker form-control col-md-12" } %>
+					</div>
+					<div class="col-md-12" style="text-align: left; padding-left: 0; padding-right: 0; margin-top: 10px;">
+						<p class="pInputs">DATA FINAL:</p>
+						<%= f.input :datafim, as: :string, required: false, label: false, input_html: { class: "datepicker form-control col-md-12" } %>
+					</div>	
+					<div class="col-md-12" style="text-align: left; padding-left: 0; padding-right: 0; margin-top: 10px;">
+						<p class="pInputs">STATUS:</p>
+						<%= f.input :status, :as => :select, :collection => Project.statuses.keys, :label => false, input_html: { class: "form-control col-md-12"} %>
+					</div>			
 				</div>
-				<div class="col-md-12" style="text-align: left; padding-left: 0; padding-right: 0; margin-top: 10px;">
-					<p class="pInputs">DATA FINAL:</p>
-					<%= f.input :datafim, as: :string, required: false, label: false, input_html: { class: "datepicker form-control col-md-12" } %>
-				</div>	
-				<div class="col-md-12" style="text-align: left; padding-left: 0; padding-right: 0; margin-top: 10px;">
-					<p class="pInputs">DATA FINAL:</p>
-					<%= f.input :status, :as => :select, :collection => Project.statuses.keys %>
-				</div>			
+				<div class="col-md-1"></div>
+				<div class="col-md-6">
+					<div class="col-md-12" style="text-align: left; padding-left: 0; padding-right: 0;">
+						<p class="pInputs">NÚMERO DE PARTICIPANTES:</p>
+						<%= f.input :max_users, required: false, label: false, input_html: { class: "form-control col-md-12" } %>
+					</div>
+				</div>
 			</div>
 
 			<div class="row">
