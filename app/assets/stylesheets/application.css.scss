@@ -218,7 +218,7 @@ p{
 
 	#profile-photo {
 		padding: 0 !important;
-
+		position: absolute;
 
 	}
 	
@@ -235,7 +235,7 @@ p{
 		}
 
 	#profile-info {
-		margin-top: 20px;
+		margin-top: 17em;
 
 		p {
 			color: #fff;
@@ -460,7 +460,7 @@ p{
 		font-family: 'Arimo', sans-serif; 
 		padding: 4px 0
 	}
-	.usuarioFotoTopic {border: 1px solid #a2b6bc;}
+	
 	.answersTopic {margin-top: 20px; margin-bottom: 20px;}
 
 
@@ -617,5 +617,12 @@ p{
 		color: #669999;
 		font-weight: bold;
 	}
+
+	.botaoFiltros {
+		background-color: #999999 !important;
+	}
 }
 
+
+
+.usuarioFotoTopic {border: 1px solid #a2b6bc;}

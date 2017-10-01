@@ -15,7 +15,9 @@
 					<%= f.input :titulo, :label => false, input_html: {:class=> "form-control col-md-12"} %>
 				</div>
 				<div class="col-md-3">
-					<%= button_to "FILTROS", nil, :class=> "btn btn-success bigDefaultButton", :id => "botaoAtivarFiltros" %>
+					<%= button_tag :class=> "btn btn-success bigDefaultButton botaoFiltros", :id => "botaoAtivarFiltros", :type => "button" do %>
+						<%= "FILTROS"%>
+					<% end%>
 				</div>
 			</div>
 			<hr>
