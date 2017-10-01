@@ -40,7 +40,7 @@ function abrirModalDuvidaEnviada() {
 
 	if (selectCategoria != "" && selectSubcategoria != "" && 
 		selectTitulo != "" && selectDescricao != "") {
-		$("#myModal").modal("show");
+		$("#duvidaEnviadaModal").modal("show");
 	} else {
 		console.log('Preencha os campos')
 	} 
@@ -68,7 +68,7 @@ function populaSelectSubcategoria(category_id) {
 }
 
 function fecharModalDuvidaEnviada() {
-	$("#myModal").modal("hide");
+	$("#duvidaEnviadaModal").modal("hide");
 }
 
 function responderResposta(answer) {
