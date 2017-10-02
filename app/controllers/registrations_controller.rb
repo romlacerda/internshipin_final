@@ -1,4 +1,10 @@
 class RegistrationsController < ApplicationController
+	def getDadosCadastro
+		@universidade = Universidade.find_by_matricula_and_cpf(params[:matricula], params[:cpf])
+		render json: @universidade	
+	end
+
+
 	private
 
 	  def sign_up_params

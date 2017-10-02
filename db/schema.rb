@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920235055) do
+ActiveRecord::Schema.define(version: 20171002023756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 20170920235055) do
     t.index ["category_id"], name: "index_topics_on_category_id"
     t.index ["subcategory_id"], name: "index_topics_on_subcategory_id"
     t.index ["user_id"], name: "index_topics_on_user_id"
+  end
+
+  create_table "universidades", force: :cascade do |t|
+    t.string "matricula"
+    t.string "nome"
+    t.string "sobrenome"
+    t.string "cpf"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", id: :serial, force: :cascade do |t|

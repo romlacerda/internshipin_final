@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Matricula:</strong>
+  <%= @universidade.matricula %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @universidade.nome %>
+</p>
+
+<p>
+  <strong>Sobrenome:</strong>
+  <%= @universidade.sobrenome %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @universidade.cpf %>
+</p>
+
+<%= link_to 'Edit', edit_universidade_path(@universidade) %> |
+<%= link_to 'Back', universidades_path %>

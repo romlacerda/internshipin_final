@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :universidades
   resources :projects do
   	get "projetos" => "projects#index"
   end
@@ -28,6 +29,8 @@ Rails.application.routes.draw do
 	get "dashboard/projetos" => "dashboard#projects", :as => :projects_dashboard
 	get "dashboard/projeto/:id" => "dashboard#project", :as => :show_project_dashboard
   	post "subcategories/getByCategoryId"
+  	post "registrations/getDadosCadastro"
+
 
 	#perfil put "perfil" => "devise/registrations#edit"
 end

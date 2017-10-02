@@ -30,7 +30,41 @@ $(document).ready(function() {
 		$("#caixaFiltros").show();
 	});
 
+	//Tela de Cadastro
+	$("#user_matricula").on("blur", function() {
+		if($("#user_cpf").val() != "" && $("#user_matricula").val() != "") {
+			getDadosCadastro();
+		}
+	})
+	$("#user_cpf").on("blur", function() {
+		if($("#user_cpf").val() != "" && $("#user_matricula").val() != "") {
+			getDadosCadastro();
+		}
+	})
+
 });
+
+function getDadosCadastro() {
+	$matricula = $("#user_matricula").val();
+	$cpf = $("#user_cpf").val();
+
+	$.ajax({
+		type: 'POST',
+		dataType: 'json',
+		url: '/registrations/getDadosCadastro',
+		data: { matricula: $matricula, cpf: $cpf },
+		success: function(result) {
+			if(result != null) {
+				$("#user_nome").val(result.nome);
+				$("#user_sobrenome").val(result.sobrenome);
+			} /*else {
+				$("#modalErroMatricula").modal("show");
+			}*/
+			
+		}
+	})
+}
+
 
 
 function abrirModalDuvidaEnviada() {
