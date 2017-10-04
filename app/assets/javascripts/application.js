@@ -21,7 +21,6 @@ $(document).ready(function() {
 	$("#topic_subcategory_id").html('');
 	$("#topic_category_id").on('change', function() {
 		$("#topic_subcategory_id").prop('disabled', false);
-
 		var categoria = $("#topic_category_id").val();
 		populaSelectSubcategoria(categoria);
 	});
@@ -34,11 +33,13 @@ $(document).ready(function() {
 	$("#user_matricula").on("blur", function() {
 		if($("#user_cpf").val() != "" && $("#user_matricula").val() != "") {
 			getDadosCadastro();
+		} else {
 		}
 	})
 	$("#user_cpf").on("blur", function() {
 		if($("#user_cpf").val() != "" && $("#user_matricula").val() != "") {
 			getDadosCadastro();
+		} else {
 		}
 	})
 
@@ -57,9 +58,9 @@ function getDadosCadastro() {
 			if(result != null) {
 				$("#user_nome").val(result.nome);
 				$("#user_sobrenome").val(result.sobrenome);
-			} /*else {
-				$("#modalErroMatricula").modal("show");
-			}*/
+				$("#buttonCadastrar").prop('disabled', false);
+			} else {
+			}
 			
 		}
 	})

@@ -601,7 +601,10 @@ p{
 	border: none !important;
 }
 
-
+a:hover {
+	color: inherit !important;
+	background-color: inherit !important;
+}
 #addProjeto {height: 40px;}
 
 /*
