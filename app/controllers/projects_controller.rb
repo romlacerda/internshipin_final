@@ -38,6 +38,21 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def close
+    project = Project.find(params[:id])
+    project.status = 2
+    project.save
+
+    redirect_to show_project_dashboard_path(project)
+  end
+
+  def andamento
+    project = Project.find(params[:id])
+    project.status = 1
+    project.save
+    redirect_to show_project_dashboard_path(project)
+  end
+
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update

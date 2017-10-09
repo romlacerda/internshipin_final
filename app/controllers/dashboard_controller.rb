@@ -52,6 +52,8 @@ def newProject
 end
 
 def project
+	@project = Project.find_by_id(params[:id])
+	@user = current_user
 end
 
 end

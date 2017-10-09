@@ -1,6 +1,6 @@
 <%= render partial: 'layouts/filterBar' %>
 
-<section id="projetoNovo" class="col-md-12">
+<section id="projetoNovo" class="col-md-12" style="margin-top: 15px; margin-bottom: 15px;">
 	<div class="col-md-8 col-md-offset-2 padraoBox">
 		<div id="facaASuaPergunta" class="col-md-12 cadastrarProjeto">
 			<h3>Cadastre o seu projeto</h3>
@@ -15,28 +15,30 @@
 				</div>
 				<div class="col-md-12" style="margin-top: 30px;">
 					<p>DATA DO PROJETO: </p>
-					<div class="col-md-6 breakPaddingInput">
+					<div class="col-md-6 pull-left" style="padding-left: 0;">
+					<p>DE:</p>
 						<%= f.input :datainicio, as: :string, required: true, label: false, input_html: { class: "datepicker form-control col-md-12" } %>	
 					</div>
-					<div class="col-md-6 breakPaddingInput">
+					<div class="col-md-6 pull-right" style="padding-right: 0;">
+					<p>ATÉ:</p>
 						<%= f.input :datafim, as: :string, required: true, label: false, input_html: {class: "datepicker form-control col-md-12"}, "data-provide" => 'datepicker-inline' %>	
 					</div>
 				</div>
 				<div class="col-md-12" style="margin-top: 30px;">
-					<div class="col-md-6 breakPaddingInput">
+					<div class="col-md-6 breakPaddingInput" style="padding-left: 0;">
 						<p>NÚMERO DE PARTICIPANTES</p>
-						<div class="col-md-12 numParticipantesBox breakPaddingInput">
+						<div class="col-md-12 numParticipantesBox" style="padding-left: 0;">
 							<%= f.input :max_users, required: true, label: false, input_html: { class: "form-control col-md-12" } %>		
 						</div>
 					</div>
-					<div class="col-md-6 breakPaddingInput">
-						<div class="col-md-12 breakPaddingInput">
+					<div class="col-md-6 breakPaddingInput" style="padding-right: 0;">
+						<div class="col-md-12" style="padding-right: 0;">
 							<p>STATUS</p>
 							<%= f.input :status, required: true, label: false, input_html: { class: "form-control col-md-12" } %>
 						</div>
-						<div class="col-md-12 breakPaddingInput" style="margin-top: 30px;">
+						<div class="col-md-12" style="margin-top: 30px; margin-bottom: 20px;">
 							<p>ANEXOS:</p>
-							<%= f.input :documentation, as: :file %>
+							<%= f.input :documentation, label: false, as: :file %>
 						</div>
 					</div>
 					<%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>

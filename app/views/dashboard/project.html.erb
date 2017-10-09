@@ -1,0 +1,62 @@
+<section id="topicPage">
+<div class="col-md-12">
+	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-12 boxBotaoVoltar">
+		<%= link_to("< VOLTAR AOS PROJETOS" , projects_dashboard_path, :class => "btn btn-default pull-right btn1") %>
+	</div>
+	<div class="col-md-12 padraoBox">
+		<div class="col-md-12" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
+			<div class="data pull-left col-md-3">
+				<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
+				<h3 class="usuarioInfo text-center"><%= @project.user.nome %></h3>
+				<div class="text-center col-md-10 col-md-offset-0">
+					<%= @project.status == 0 ? image_tag('aberto') : (@project.status == 1 ? image_tag('emandamento') : image_tag('finalizado')) %>
+					<% if (@project.user_id == @user.id) %>
+						<%= link_to("Encerrar Projeto", close_project_path(@project)) %> 
+					<% end %>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<h3 style="margin-bottom: 15px;"><%= @project.titulo %></h3>
+				<div class="col-md-12 breakPaddingInput" style="margin-bottom: 25px;">
+					<div class="col-md-6 breakPaddingInput" style="margin-left: 0;">
+						<p>INÍCIO: </p><%= @project.datainicio %>
+					</div>
+					<div class="col-md-6 breakPaddingInput">
+						<p>FIM: </p><%= @project.datafim %>
+					</div>	
+					<div class="col-md-12 breakPaddingInput" style="margin: 30px 0;">
+						<p><%= @project.descricao %></p>
+					</div>
+					<div class="col-md-6 breakPaddingInput">
+						<p>INSCRITOS: <b>8 ALUNOS</b> </p>
+						<ul>
+							<li>Rômulo Lacerda</li>
+							<li>Igor Marçal</li>
+							<li>Roger Silva</li>
+							<li>Max Yuri</li>
+						</ul>
+					</div>
+					<div class="col-md-6 breakPaddingInput">
+						<p>LIMITE: <b>10 ALUNOS</b></p>
+					</div>
+					<div class="col-md-12 breakPaddingInput">
+						<p>ANEXO:</p>
+						<b style="color: #cc6633; text-decoration: underline;"><%= link_to "Documentação", @project.documentation.url(:original, false), :style => "color: #cc6633;" %></b>
+					</div>
+					<div class="row">
+					<div class="col-md-12 breakPaddingInput" style="margin-top: 20px;">
+						<%= button_tag "ENTRAR PARA O PROJETO", class: "btn btn-success bigDefaultButton breakPaddingInput" %>
+					</div>
+				</div>
+				</div>
+				
+
+			</div>
+		</div>
+	</div>
+
+</div>
+</section>
+
+

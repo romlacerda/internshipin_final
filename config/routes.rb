@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :universidades
   resources :projects do
   	get "projetos" => "projects#index"
+  	member do
+  		get :close
+  	end
   end
   resources :topics do
   	member do
