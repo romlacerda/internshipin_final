@@ -12,6 +12,7 @@
 				<div class="text-center col-md-10 col-md-offset-0">
 					<%= @project.status == 0 ? image_tag('aberto') : (@project.status == 1 ? image_tag('emandamento') : image_tag('finalizado')) %>
 					<% if (@project.user_id == @user.id) %>
+						<%= link_to("Editar", edit_project_dashboard_path(@project)) %>
 						<%= link_to("Encerrar Projeto", close_project_path(@project)) %> 
 					<% end %>
 				</div>

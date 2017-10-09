@@ -30,7 +30,9 @@ Rails.application.routes.draw do
 	get "dashboard/answerBoxShow" => "dashboard#answer_box_show"
 	get "dashboard/projeto/novo" => "dashboard#newProject", :as => :new_project_dashboard 
 	get "dashboard/projetos" => "dashboard#projects", :as => :projects_dashboard
-	get "dashboard/projeto/:id" => "dashboard#project", :as => :show_project_dashboard
+	get "dashboard/projetos/:id" => "dashboard#project", :as => :show_project_dashboard
+  get "dashboard/projetos/editar/:id" => "dashboard#editProject", :as => :edit_project_dashboard
+  
   	post "subcategories/getByCategoryId"
   	post "registrations/getDadosCadastro"
 
