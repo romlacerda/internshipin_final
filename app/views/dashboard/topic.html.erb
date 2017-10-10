@@ -12,6 +12,7 @@
 				<div class="text-center col-md-10 col-md-offset-0">
 					<%= @topic.status == 0 ? image_tag('aberto') : image_tag('finalizado') %>
 					<% if (@topic.user_id == @user.id) %>
+						<%= link_to("Editar", edit_topic_dashboard_path(@topic)) %> 
 						<%= link_to("Fechar Tópico", close_topic_path(@topic)) %> 
 					<% end %>
 				</div>

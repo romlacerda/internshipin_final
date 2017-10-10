@@ -1,82 +1,8 @@
-<section id="topicPage">
-<div class="col-md-12">
-	<div class="col-md-8 col-md-offset-2 boxBotaoVoltar">
-		<%= link_to("< VOLTAR AS DÚVIDAS" , dashboard_path, :class => "btn btn-default pull-right btn1") %>
-	</div>
+<section id="questionMake" class="col-md-12">
 	<div class="col-md-8 col-md-offset-2 padraoBox">
-		<div class="col-md-12" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
-			<div class="data pull-left col-md-3">
-				<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
-				<h3 class="usuarioInfo text-center"><%= @topic.user.nome %></h3>
-				<div class="text-center col-md-10 col-md-offset-0">
-					<%= @topic.status == 0 ? image_tag('aberto') : image_tag('finalizado') %>
-					<% if (@topic.user_id == @user.id) %>
-						<%= link_to("Fechar Tópico", close_topic_path(@topic)) %> 
-					<% end %>
-				</div>
-			</div>
-			<div class="col-md-9">
-				<h3 style="margin-bottom: 15px;"><%= @topic.titulo %></h3>
-				<h4 style="margin-bottom: 25px;">
-					<%= @topic.category.nome %>
-					>
-					<%= @topic.subcategory.nome %>	
-				</h4>
-				<p><%= @topic.descricao %></p>
-				<p><%#= t.subcategory.nome %></p>
-			</div>
+		<div id="facaASuaPergunta" class="col-md-12">
+			<h3>Edite o seu tópico</h3>
+			<%= render partial: 'layouts/question' %>
 		</div>
 	</div>
-
-	<!-- Respostas (Answers) -->
-	<div id="answersTopic">
-	<div class="col-md-8 col-md-offset-2 resetPadding">
-		<div class="answersTopic">
-			<h3>Outras Respostas (1):</h3>
-		</div>
-	</div>
-	<% @answers.each do |a| %>
-	<div class="col-md-8 col-md-offset-2 padraoBox">
-		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
-			<div class="data pull-left col-md-2">
-				<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
-			</div>
-			<div class="col-md-10">
-				<div class="pull-right">
-					<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => a.id}, :method => :delete, data: {confirm: 'Ctz?'} %>
-				</div>
-				<h4><%= a.user.nome %></h4>
-				<p><%= a.descricao %></p>
-				<div class="acoes pull-right">
-					<%= image_tag('vote-sim') %>
-					<%= image_tag('vote-nao') %>
-					<%= image_tag('responder') %>
-				</div>
-				<p><%#= t.subcategory.nome %></p>
-			</div>
-		</div>	
-	</div>
-	<% end %>
-
-
-	<!-- Caixa de Resposta -->
-	<div class="col-md-8 col-md-offset-2 padraoBox">
-		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
-			<div class="col-md-12">
-				<%= simple_form_for @answer do |a| %>
-					<%= a.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px;" }, :label => false %>
-					<%= a.input :user_id, as: :hidden, input_html: { value: @user.id } %>
-					<%= a.input :topic_id, as: :hidden, input_html: { value: @topic.id } %>
-					<%= a.button :submit, "RESPONDER", class: "btn btn-success botaoEnviarDuvida", :controller => "answers" %>
-				<% end %>
-			</div>
-		</div>	
-	</div>
-		
-	</div>
-	</div>
-
-</div>
 </section>
-
-
