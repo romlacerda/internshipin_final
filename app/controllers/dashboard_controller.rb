@@ -61,4 +61,9 @@ def editProject
 	@user = current_user
 end
 
+def newSubmission
+	@user = current_user
+	@submission = Submission.new
+end
+
 end

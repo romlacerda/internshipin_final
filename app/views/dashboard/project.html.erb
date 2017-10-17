@@ -47,12 +47,10 @@
 					</div>
 					<div class="row">
 					<div class="col-md-12 breakPaddingInput" style="margin-top: 20px;">
-						<%= button_tag "ENTRAR PARA O PROJETO", class: "btn btn-success bigDefaultButton breakPaddingInput" %>
+						<%= button_to "ENTRAR PARA O PROJETO", {:controller => "submissions", :action => "create", :project_id => @project.id, :user_id => @user.id} %>
 					</div>
 				</div>
 				</div>
-				
-
 			</div>
 		</div>
 	</div>
