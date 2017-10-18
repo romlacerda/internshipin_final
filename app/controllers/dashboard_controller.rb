@@ -43,6 +43,7 @@ def projects
 	@user = current_user
 	@project = Project.new
 	@projects = Project.order('created_at DESC')
+	@submissionsCount = Submission.count('project_id')
 
 end
 
@@ -54,6 +55,7 @@ end
 def project
 	@project = Project.find_by_id(params[:id])
 	@user = current_user
+	@submissionsCount = Submission.count('project_id')
 end
 
 def editProject
