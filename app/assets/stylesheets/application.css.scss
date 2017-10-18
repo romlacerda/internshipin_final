@@ -408,10 +408,15 @@ p{
 		border: 1px solid #a2b6bc;
 		padding: 20px;
 		margin-bottom: 10px;
-		min-height: 170px;
+		min-height: 145px;
 		p {
-			margin-bottom: 0 !important;
 		}
+		h4{
+			font-size: 20px;
+			font-weight: bold;
+			color: #d5652c !important;
+		}
+		h5 {font-size: 15px; color: #262626; font-weight: bold; font-family: 'Arimo', sans-serif;}
 	}
 }
 
@@ -497,16 +502,19 @@ p{
 	}
 	p {
 		margin-top: 0px;
-		font-size: 20px;
+		//font-size: 20px;
 	    font-family: 'Arimo', sans-serif !important;
 	    font-weight: bold;
-	    color: #3c9;
+	    //color: #3c9;
 	}
 }
 
 #corpo-topic {
-	margin-top: 55px;
+	margin-top: 40px;
 	margin-bottom: 25px !important;
+	font-size: 14px;
+	font-family: 'Arimo', sans-serif;
+	color: #a0a1a2;
 }
 
 .botaoModalPrimary {
@@ -539,6 +547,10 @@ p{
 	padding-right: 0 !important;
 }
 
+.no-margin {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
 
 
 
@@ -631,3 +643,4 @@ a:hover {
 .usuarioFotoTopic {border: 1px solid #a2b6bc;}
 
 #answering .form-control {background-color: #fff !important; height: 100px !important; padding: 12px !important;}
+

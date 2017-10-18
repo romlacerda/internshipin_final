@@ -19,23 +19,22 @@
 		<div class="box-topics">
 			<div class="data pull-left col-md-3">
 				<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
-				<p class="text-center"><%= t.created_at.strftime("%d/%m/20%y") %></p>
+				<p class="text-center"></p>
 			</div>
 			<div class="text pull-left col-md-9">
 				<div class="col-md-8" style="padding: 0; margin: 0;">
-					<p><b><%= t.user.nome %></b></p>
+					<h5 class="breakPaddingInput no-margin"><%= t.user.nome %></h5>
 				</div>
 				<div class="col-md-4" style="padding: 0; margin: 0;">
 					<div class="pull-right">
-					<%#= link_to("Editar", edit_topic_dashboard_path(t)) %>
-					<%= t.status == 0 ? image_tag('aberto') : image_tag('finalizado') %>
+						<%#= link_to("Editar", edit_topic_dashboard_path(t)) %>
+						<%= t.status.to_i == 0 ? image_tag('aberto') : image_tag('finalizado') %>
+					</div>
 				</div>
-				</div>
-				<p><%= link_to t.titulo, show_topic_dashboard_path(t) %></p>
-				
-				
-				<p id="corpo-topic"><%= truncate(t.descricao, :length => 120) %></p>
-				<p><%#= t.subcategory.nome %></p>
+				<p id="corpo-topic">
+					<%= link_to t.titulo, show_topic_dashboard_path(t) %>
+				</p>
+				<p class="pull-left" style="color: #6fb353; font-weight: bold;">15 RESPOSTAS</p>
 			</div>
 		</div>
 	<% end %>

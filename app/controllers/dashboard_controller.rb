@@ -19,6 +19,7 @@ def topic
 	@answer = Answer.new
 	@answers = Answer.where(:topic_id => @topic.id)
 	@answersChild = Answer.all
+	@answersCount = Answer.count('topic_id')
 end
 
 def editTopic
