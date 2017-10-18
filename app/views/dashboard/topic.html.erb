@@ -28,7 +28,21 @@
 				<p><%#= t.subcategory.nome %></p>
 			</div>
 		</div>
+
 	</div>
+
+	<!-- Caixa de Resposta -->
+	<% if (@topic.status != 1) %>
+	<div class="col-md-12 breakPaddingInput" id="answering" style="margin-top: 20px;">
+		<%= simple_form_for @answer do |a| %>
+			<%= a.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px; background-color: #fff; height: 50px;" }, :label => false %>
+			<%= a.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+			<%= a.input :topic_id, as: :hidden, input_html: { value: @topic.id } %>
+			<%= a.button :submit, "RESPONDER", class: "btn btn-success botaoEnviarDuvida", :controller => "answers" %>
+		<% end %>
+	</div>
+	<% end %>
+
 
 	<!-- Respostas (Answers) -->
 	<div id="answersTopic">
@@ -93,23 +107,6 @@
 	<div id="teste">
 		
 	</div>
-
-
-	<!-- Caixa de Resposta -->
-	<% if (@topic.status != 1) %>
-	<div class="col-md-12 padraoBox">
-		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
-			<div class="col-md-12">
-				<%= simple_form_for @answer do |a| %>
-					<%= a.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px;" }, :label => false %>
-					<%= a.input :user_id, as: :hidden, input_html: { value: @user.id } %>
-					<%= a.input :topic_id, as: :hidden, input_html: { value: @topic.id } %>
-					<%= a.button :submit, "RESPONDER", class: "btn btn-success botaoEnviarDuvida", :controller => "answers" %>
-				<% end %>
-			</div>
-		</div>	
-	</div>
-	<% end %>
 		
 	</div>
 	</div>
