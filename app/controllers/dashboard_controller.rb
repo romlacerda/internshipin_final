@@ -19,7 +19,7 @@ def topic
 	@answer = Answer.new
 	@answers = Answer.where(:topic_id => @topic.id)
 	@answersChild = Answer.all
-	@answersCount = Answer.count('topic_id')
+	@answersCount = Answer.where(:topic_id => params[:id]).count
 end
 
 def editTopic
@@ -44,8 +44,7 @@ def projects
 	@user = current_user
 	@project = Project.new
 	@projects = Project.order('created_at DESC')
-	@submissionsCount = Submission.count('project_id')
-
+	@submissionsCount = Submission.where(:project_id => params[:id]).count
 end
 
 def newProject

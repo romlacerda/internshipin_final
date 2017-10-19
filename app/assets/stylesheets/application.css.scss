@@ -385,7 +385,12 @@ p{
 	border: 1px solid #a2b6bc;
 	border-radius: 10px;
 }
-
+.padraoBoxInverse {
+	background-color: #dee7eb;
+	border: 1px solid #a2b6bc;
+	border-radius: 10px;
+	margin-bottom: 13px;
+}
 
 .botaoEnviarDuvida, .botaoPesquisarDuvida {
 	width: 100%;
@@ -479,7 +484,7 @@ p{
 		}
 
 		.boxAnswer {margin-top: 10px; margin-bottom: 10px;}
-		.padraoBox {margin-bottom: 20px;}
+		.padraoBox {margin-bottom: 13px;}
 	}
 }
 

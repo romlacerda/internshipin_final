@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to show_topic_dashboard_path(@answer.topic_id), notice: 'Answer was successfully created.' }
+        #format.html { redirect_to show_topic_dashboard_path(@answer.topic_id), notice: 'Answer was successfully created.' }
         #format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }

@@ -18,6 +18,7 @@
 //= require bootstrap-datepicker
 
 $(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip(); 
 	$("#topic_subcategory_id").html('');
 	$("#topic_category_id").on('change', function() {
 		$("#topic_subcategory_id").prop('disabled', false);
