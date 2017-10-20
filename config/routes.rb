@@ -22,9 +22,9 @@ Rails.application.routes.draw do
     root :to => "devise/sessions#new"
        get "login", to: "devise/sessions#new"
        get "logout", to: "devise/sessions#destroy"
-       get "perfil/alterar" => "devise/registrations#edit", as: "perfil_edit_path"
+       get "dashboard/perfil/alterar/:id" => "users/registrations#edit", as: "perfil_edit"
        post "perfil/updateAvatar" => "users/registrations#updateAvatar", :as => "updateAvatar"
-       get "dashboard/perfil/:id" => "users#show", :as => :perfil_show_path
+       get "dashboard/perfil/:id" => "users#show", :as => :perfil_show
 
   end
   get "dashboard/perfil" => "users#show"

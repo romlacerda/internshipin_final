@@ -38,7 +38,7 @@
 			<%= a.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px; background-color: #fff; height: 50px;" }, :label => false %>
 			<%= a.input :user_id, as: :hidden, input_html: { value: @user.id } %>
 			<%= a.input :topic_id, as: :hidden, input_html: { value: @topic.id } %>
-			<%= a.button :submit, "RESPONDER", class: "btn btn-success botaoEnviarDuvida", :controller => "answers" %>
+			<%= a.button :submit, "RESPONDER", class: "btn btn-success col-md-4 pull-right botaoEnviarDuvida", :controller => "answers" %>
 		<% end %>
 	</div>
 	<% end %>

@@ -216,6 +216,10 @@ p{
 	//height: 100vh;
 	padding: 0 !important;
 
+	a {
+		color: #fff !important;
+		&:visited {color: #fff !important;}
+	}
 	#profile-photo {
 		padding: 0 !important;
 		position: absolute;
@@ -361,10 +365,15 @@ p{
 	font-family: 'Arimo', sans-serif;
 	min-height: 175px !important;
 	text-align: center;
+	width: 23% !important;
+	margin: 13px !important;
+	padding: 15px 35px !important;
 	ul {
 		margin: 0 !important; 
 		padding: 10px;
 	}
+
+	h4 {font-weight: bold; font-family: 'Arimo', sans-serif;}
 }
 
 #mainBody {
