@@ -15,7 +15,7 @@ class RegistrationsController < ApplicationController
 	  end
 
 	  def sign_up_params
-	    params.require(:user).permit(:nome, :email, :matricula, :password, :password_confirmation, :avatar)
+	    params.require(:user).permit(:nome, :sobrenome, :email, :matricula, :password, :password_confirmation, :avatar, :cpf)
 	  end
 
 	  def account_update_params
