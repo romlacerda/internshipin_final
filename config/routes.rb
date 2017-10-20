@@ -17,12 +17,13 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :answers
-    devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
   devise_scope :user do
     root :to => "devise/sessions#new"
        get "login", to: "devise/sessions#new"
        get "logout", to: "devise/sessions#destroy"
        get "perfil/alterar" => "devise/registrations#edit", as: "perfil_edit_path"
+       post "perfil/updateAvatar" => "users/registrations#updateAvatar", :as => "updateAvatar"
        get "dashboard/perfil/:id" => "users#show", :as => :perfil_show_path
 
   end

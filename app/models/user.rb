@@ -4,4 +4,5 @@ class User < ApplicationRecord
 	devise :database_authenticatable, :registerable,
     	:recoverable, :rememberable, :trackable, :validatable
 	enum access: { "Aluno" => 0, "Professor" => 1, "Administrador" => 2}
+	
 end

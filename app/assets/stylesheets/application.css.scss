@@ -219,7 +219,12 @@ p{
 	#profile-photo {
 		padding: 0 !important;
 		position: absolute;
-
+		height: 20em;
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
 	}
 	
 	#change-photo {
@@ -649,3 +654,5 @@ a:hover {
 
 #answering .form-control {background-color: #fff !important; height: 100px !important; padding: 12px !important;}
 
+.profile_avatar {
+}

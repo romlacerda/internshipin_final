@@ -1,10 +1,15 @@
 <section>
 	<div class="col-md-3" id="sidebar-dashboard">
 		<div class="col-md-12" id="profile-photo">
-			<%= image_tag("ruiva.jpg", class:"img-responsive") %>
+			<%= image_tag @user.avatar.url, :class => "img-responsive profile_avatar" %>
 		</div>
 		<div class="col-md-12" id="">
-			<div class="text-center">Alterar Foto</div>
+			<div class="text-center">
+				<%= simple_form_for current_user, :url => {:action => "updateAvatar", :controller => "users/registrations"}, :method => "post", :html => { :multipart => true } do |f| %>
+					<%= f.input :avatar, label: false, as: :file %>
+					<%= f.submit "Alterar" %>
+				<% end %>
+			</div>
 		</div>
 		<div class="col-md-10 col-md-offset-1" id="profile-info">
 			<div class="name-curso">
