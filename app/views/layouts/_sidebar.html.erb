@@ -13,7 +13,7 @@
 		</div>
 		<div class="col-md-10 col-md-offset-1" id="profile-info">
 			<div class="name-curso">
-				<h2><%= link_to @user.nome + " " + @user.sobrenome.to_s, perfil_show_path(@user.id) %></h2>
+				<h2><%= link_to @user.nome.to_s + " " + @user.sobrenome.to_s, perfil_show_path(@user.id) %></h2>
 				<p>Sistemas de Informação</p>
 			</div>
 <!-- 			<div class="score">
