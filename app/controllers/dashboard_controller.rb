@@ -56,6 +56,7 @@ def project
 	@project = Project.find_by_id(params[:id])
 	@user = current_user
 	@submissionsCount = Submission.count('project_id')
+	@members = Submission.where(:project_id => params[:id])
 end
 
 def editProject

@@ -9,15 +9,17 @@
 			<div class="data pull-left col-md-3">
 				<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
 				<h3 class="usuarioInfo text-center"><%= @project.user.nome %></h3>
-				<div class="text-center col-md-10 col-md-offset-0">
+				<div class="text-center col-md-12 breakPaddingInput">
 					<% if @project.status.to_i == 0 %>
 						<%= image_tag('aberto') %>
 					<% else %>
 						<%= image_tag('finalizado') %>
 					<% end %>
 					<% if (@project.user_id == @user.id) %>
-						<%= link_to("Editar", edit_project_dashboard_path(@project)) %>
-						<%= link_to("Encerrar Projeto", close_project_path(@project)) %> 
+					<ul class="col-md-12 breakPaddingInput">
+						<li><%= link_to("Editar", edit_project_dashboard_path(@project)) %></li>
+						<li><%= link_to("Encerrar Projeto", close_project_path(@project)) %></li>
+					</ul>
 					<% end %>
 				</div>
 			</div>
@@ -25,33 +27,32 @@
 				<h3 style="margin-bottom: 15px;"><%= @project.titulo %></h3>
 				<div class="col-md-12 breakPaddingInput" style="margin-bottom: 25px;">
 					<div class="col-md-6 breakPaddingInput" style="margin-left: 0;">
-						<p>INÍCIO: </p><%= @project.datainicio.strftime('%d/%m/%y %R') %>
+						<p><b>INÍCIO: </b><%= @project.datainicio.strftime('%d/%m/%y %R') %></p>
 					</div>
 					<div class="col-md-6 breakPaddingInput">
-						<p>FIM: </p><%= @project.datafim.strftime('%d/%m/%y %R') %>
+						<p><b>FIM: </b><%= @project.datafim.strftime('%d/%m/%y %R') %></p>
 					</div>	
 					<div class="col-md-12 breakPaddingInput" style="margin: 30px 0;">
 						<p><%= @project.descricao %></p>
 					</div>
 					<div class="col-md-6 breakPaddingInput">
-						<p>INSCRITOS: <b><%= @submissionsCount %> INSCRITO (S)</b> </p>
-						<ul>
-							<li>Rômulo Lacerda</li>
-							<li>Igor Marçal</li>
-							<li>Roger Silva</li>
-							<li>Max Yuri</li>
+						<p><b>INSCRITOS:</b> <b style="color: #d76d39;"><%= @submissionsCount %> INSCRITO (S)</b> </p>
+						<ul class="col-md-12 breakPaddingInput submissions">
+							<% @members.each do |m| %>
+								<li class="col-md-5"><%= image_tag(m.user.avatar.url, :class => "img-responsive img-circle") %></li>
+							<% end %>
 						</ul>
 					</div>
 					<div class="col-md-6 breakPaddingInput">
-						<p>LIMITE: <b><%= @project.max_users %> ALUNO (S)</b></p>
+						<p><b>LIMITE:</b> <b style="color: #d76d39;"><%= @project.max_users %> ALUNO (S)</b></p>
 					</div>
 					<div class="col-md-12 breakPaddingInput">
-						<p>ANEXO:</p>
+						<b>ANEXO:</b>
 						<b style="color: #cc6633; text-decoration: underline;"><%= link_to "Documentação", @project.documentation.url(:original, false), :style => "color: #cc6633;" %></b>
 					</div>
 					<div class="row">
 					<div class="col-md-12 breakPaddingInput" style="margin-top: 20px;">
-						<%= button_to "ENTRAR PARA O PROJETO", {:controller => "submissions", :action => "create", :project_id => @project.id, :user_id => @user.id} %>
+						<%= button_to "ENTRAR PARA O PROJETO", {:controller => "submissions", :action => "create", :project_id => @project.id, :user_id => @user.id}, :class => "bigDefaultButton btn btn-default" %>
 					</div>
 				</div>
 				</div>

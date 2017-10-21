@@ -98,7 +98,7 @@ p{
 /* */
 #login-page {
 	padding: 0 !important;
-	
+	background-color: #fff;
 
 	#fundo-alunos {
 		background-color: black;
@@ -538,6 +538,11 @@ p{
 	font-size: 15px !important;
 	border-radius: 10px !important;
 	padding: 10px 15px !important;
+
+	&:hover {
+		background-color: #66e4cc !important;
+		color: #fff !important;
+	}
 }
 
 
@@ -656,6 +661,13 @@ p{
 	width: 100%;
 	background-color: #47c5ad !important;
 	border: none !important;
+	color: #fff !important;
+	border-radius: 10px;
+
+	&:hover {
+		background-color: #66e4cc !important;
+		color: #fff !important;
+	}
 }
 
 a:hover {
@@ -698,3 +710,5 @@ a:hover {
   left: 50%;
   border-bottom-color: #a2b6bc !important; /* black */
   border-width: 0 5px 5px;}
+
+ .submissions {border: 1px solid #fff;}
