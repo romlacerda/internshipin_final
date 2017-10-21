@@ -454,7 +454,7 @@ p{
 			color: #d5652c !important;
 		}
 		h5 {font-size: 15px; color: #262626; font-weight: bold; font-family: 'Arimo', sans-serif;}
-		img{border: 1px solid #a2b6bc;}
+		.perfil{border: 1px solid #a2b6bc;}
 	}
 }
 
@@ -691,3 +691,10 @@ a:hover {
 
 .profile_avatar {
 }
+
+
+.tooltip-inner {background-color: #fff !important; border: 1px solid #a2b6bc !important; color: #75868e !important;}
+.tooltip-arrow { 
+  left: 50%;
+  border-bottom-color: #a2b6bc !important; /* black */
+  border-width: 0 5px 5px;}
