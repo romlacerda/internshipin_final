@@ -28,7 +28,11 @@
 				<div class="col-md-4" style="padding: 0; margin: 0;">
 					<div class="pull-right">
 						<%#= link_to("Editar", edit_topic_dashboard_path(t)) %>
-						<%= t.status.to_i == 0 ? image_tag('aberto') : image_tag('finalizado') %>
+						<% if t.status.to_i == 0 %>
+							<%= image_tag('aberto') %>
+						<% else %>
+							<%= image_tag('finalizado') %>
+						<% end %>
 					</div>
 				</div>
 				<p id="corpo-topic">

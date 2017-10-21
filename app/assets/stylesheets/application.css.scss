@@ -43,7 +43,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-color: #eef2f4;
+	background-color: #eef2f4 !important;
 }
 ol, ul {
 	list-style: none;
@@ -454,6 +454,7 @@ p{
 			color: #d5652c !important;
 		}
 		h5 {font-size: 15px; color: #262626; font-weight: bold; font-family: 'Arimo', sans-serif;}
+		img{border: 1px solid #a2b6bc;}
 	}
 }
 

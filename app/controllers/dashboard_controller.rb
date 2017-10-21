@@ -9,7 +9,6 @@ def index
 	@categories = Category.all
 	@category = Category.new
 	@subcategories = Subcategory.all
-	@answersCount = Answer.where(:topic_id => params[t.id]).count
 end
 
 def topic
