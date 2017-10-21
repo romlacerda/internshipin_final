@@ -20,15 +20,17 @@
 		</div>
 		<div class="col-md-3 perfil-categorias">
 			<h4>Respostas</h4>
+			<% @answers.each do |a| %>
 			<div class="duvidasBoxPerfil container" style="margin-top: 5px;">
 				<div class="col-md-4">
-					<%= image_tag("ronaldo-default", :class => "img-responsive img-circle") %>
+					<%= image_tag(a.topic.user.avatar.url, :class => "img-responsive img-circle") %>
 				</div>
 				<div class="col-md-8 breakPaddingInput">
-					<h5 class="text-left no-margin"><b>Duvida PHP</b></h5>
-					<p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, quibusdam, incidunt.</p>
+					<h5 class="text-left no-margin"><b><%= a.topic.titulo %></b></h5>
+					<p class="text-left"><%= a.descricao %></p>
 				</div>
 			</div>
+			<% end %>
 		</div>
 	</div>
 </section>

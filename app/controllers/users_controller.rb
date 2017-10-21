@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 	    #@user = User.find(params[:id])
 	    @user = current_user
 	    @topics = Topic.where(:user_id => current_user.id).order(:id => :desc).limit(5)
+	    @answers = Answer.joins(:topic).where("user_id" => current_user.id).order(:id => :desc).limit(5)
   	end
 
   	def update
