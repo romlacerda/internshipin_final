@@ -3,11 +3,11 @@
 		<div class="col-md-12" id="profile-photo">
 			<%= image_tag @user.avatar.url, :class => "img-responsive profile_avatar" %>
 		</div>
-		<div class="col-md-12" id="">
-			<div class="text-center">
+		<div class="col-md-12" id="caixa-none">
+			<div class="text-center" id="alterarFoto">
 				<%= simple_form_for current_user, :url => {:action => "updateAvatar", :controller => "users/registrations"}, :method => "post", :html => { :multipart => true } do |f| %>
 					<%= f.input :avatar, label: false, as: :file %>
-					<%= f.submit "Alterar" %>
+					<%= f.submit "Alterar", :class => "col-md-6 bigDefaultButton btn btn-default" %>
 				<% end %>
 			</div>
 		</div>

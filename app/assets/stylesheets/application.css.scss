@@ -229,7 +229,12 @@ p{
 			width: 100%;
 			object-fit: cover;
 		}
+		&:hover + #caixa-none{
+				visibility: visible;
+		}
 	}
+	#caixa-none{visibility: hidden; margin-top: 100px}
+
 	
 	#change-photo {
 		position: absolute;
@@ -244,7 +249,7 @@ p{
 		}
 
 	#profile-info {
-		margin-top: 17em;
+		margin-top: 11em;
 
 		p {
 			color: #fff;
@@ -361,19 +366,32 @@ p{
 .perfil-categorias {
 	background-color: #fff !important;
 	border: 1px solid #a2b6bc;
-	border-radius: 5px;
+	border-radius: 10px;
 	font-family: 'Arimo', sans-serif;
 	min-height: 175px !important;
 	text-align: center;
 	width: 23% !important;
 	margin: 13px !important;
-	padding: 15px 35px !important;
+	padding: 15px 15px !important;
+	img {border: 1px solid #a2b6bc;}
+	h5{color: #535353;}
 	ul {
 		margin: 0 !important; 
 		padding: 10px;
 	}
+	p {
+		color: #989a9b !important;
+	}
+	h4 {font-weight: bold; font-family: 'Arimo', sans-serif; color: #535353;}
 
-	h4 {font-weight: bold; font-family: 'Arimo', sans-serif;}
+	.duvidasBoxPerfil {
+		background-color: #fff;
+		border-radius: 10px;
+		border: 1px solid #a2b6bc;
+		padding: 15px 12px 5px 12px;
+		width: 100%;
+		margin: 7px 0;
+	}
 }
 
 #mainBody {
@@ -452,6 +470,13 @@ p{
 		img {
 			border: 9px solid #fff;
 		}
+	
+		@media (min-width: 992px) {
+			#imagem-perfil {
+				margin-left: 38% !important;
+			}
+		}
+		
 	}	
 }
 

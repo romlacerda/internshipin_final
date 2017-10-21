@@ -59,7 +59,7 @@
 		<% @projects.each do |p| %>
 			<div class="box-projects">
 				<div class="dataProjeto pull-left col-md-3">
-					<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
+					<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
 					<p class="text-center">
 						<b style="padding: 10px 0;"><%= p.user.nome %></b>
 						<% if p.status.to_i == 0 %>

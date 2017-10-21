@@ -5,15 +5,30 @@
 		</div>
 		<div class="col-md-3 perfil-categorias">
 			<h4>Sobre</h4>
-			<p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus delectus sapiente, sit maiores assumenda expedita a! Enim sed quia magnam, pariatur est repellendus ipsum eius asperiores tempore optio, veniam cumque!
+			<p class="text-left" style="padding: 0 15px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus delectus sapiente, sit maiores assumenda expedita a! Enim sed quia magnam, pariatur est repellendus ipsum eius asperiores tempore optio, veniam cumque!
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate repudiandae velit assumenda cumque libero, laborum, tempora facilis autem, ea molestiae cum dolor rem sunt. Quia veritatis quasi neque sunt eveniet?
 			</p>
 		</div>
 		<div class="col-md-3 perfil-categorias">
 			<h4>Dúvidas</h4>
+			<% @topics.each do |t| %>
+			<div class="duvidasBoxPerfil">
+				<h5 class="text-left no-margin"><b><%= t.titulo %></b></h5>
+				<p class="text-left"><%= t.descricao.first(20) %></p>
+			</div>
+			<% end %>
 		</div>
 		<div class="col-md-3 perfil-categorias">
 			<h4>Respostas</h4>
+			<div class="duvidasBoxPerfil container" style="margin-top: 5px;">
+				<div class="col-md-4">
+					<%= image_tag("ronaldo-default", :class => "img-responsive img-circle") %>
+				</div>
+				<div class="col-md-8 breakPaddingInput">
+					<h5 class="text-left no-margin"><b>Duvida PHP</b></h5>
+					<p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, quibusdam, incidunt.</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

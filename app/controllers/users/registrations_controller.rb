@@ -4,11 +4,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		super
 	end
 
+	def show
+
+		
+	end
 
 	def updateAvatar
 		current_user.update_without_password avatar_params
 		current_user.save
-
 	end
 
 	private

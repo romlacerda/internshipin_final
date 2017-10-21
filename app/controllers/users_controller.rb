@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	def show
 	    #@user = User.find(params[:id])
 	    @user = current_user
-    	# If this show page is only for the currently logged in user change it to @user = current_user
+	    @topics = Topic.where(:user_id => current_user.id).order(:id => :desc).limit(5)
   	end
 
   	def update

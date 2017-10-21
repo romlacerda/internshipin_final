@@ -34,7 +34,7 @@
 				<p id="corpo-topic">
 					<%= link_to t.titulo, show_topic_dashboard_path(t) %>
 				</p>
-				<p class="pull-left" style="color: #6fb353; font-weight: bold;">15 RESPOSTAS</p>
+				<p class="pull-left" style="color: #6fb353; font-weight: bold;"><%= @answersCount %> RESPOSTAS</p>
 			</div>
 		</div>
 	<% end %>
