@@ -692,6 +692,10 @@ a:hover {
 
 	.botaoFiltros {
 		background-color: #999999 !important;
+
+		&:hover {
+			background-color: #d0cfcf !important;
+		}
 	}
 }
 

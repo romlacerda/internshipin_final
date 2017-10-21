@@ -20,7 +20,7 @@
 		</div>
 		<div class="col-md-12" style="margin-bottom: 20px; margin-top: 10px;">
 			<%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>
-			<%= f.button :submit, "ENVIAR A SUA DÚVIDA", class: "btn btn-success botaoEnviarDuvida", :onclick => "abrirModalDuvidaEnviada()", :id => "botaoEnviarDuvida", :label => false %>
+			<%= f.button :submit, "ENVIAR A SUA DÚVIDA", class: "btn btn-success bigDefaultButton", :onclick => "abrirModalDuvidaEnviada()", :id => "botaoEnviarDuvida", :label => false %>
 		</div>
 	<% end %>
 </div>

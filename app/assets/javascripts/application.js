@@ -17,7 +17,8 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 
-$(document).ready(function() {
+
+$(document).on('turbolinks:load', function() {
     $('[data-toggle="tooltip"]').tooltip(); 
 	$("#topic_subcategory_id").html('');
 	$("#topic_category_id").on('change', function() {
