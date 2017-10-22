@@ -1,0 +1,18 @@
+<div class="modal fade" id="duvidaEditadaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-md-12 text-center">
+          <%= image_tag("button-send") %>
+          <h3>Dúvida editada com sucesso</h3>
+          <p>Agora é só aguardar e em breve alguem irá ajudar :).</p>
+        </div>
+      </div>
+      <div class="modal-footer" style="margin-bottom: 20px;">
+        <div class="col-md-4 col-md-offset-4">
+        <%= button_tag("OK, FECHAR.", :class => "btn btn-default botaoModalPrimary", :onclick => "fecharModalDuvidaEditada();") %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

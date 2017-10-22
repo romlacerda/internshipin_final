@@ -69,6 +69,24 @@ function getDadosCadastro() {
 }
 
 
+function searchTopics() {
+	$categoria = $("#topic_category_id").val();
+	$subcategoria = $("#topic_subcategory_id").val();
+
+	$.ajax({
+		type: 'GET',
+		dataType: 'json',
+		url: '/topics/search',
+		data: { category_id: $categoria, subcategory_id: $subcategory },
+		success: function(result) {
+			alert(result);
+		}
+	})
+}
+
+
+
+
 
 function abrirModalDuvidaEnviada() {
 
@@ -85,6 +103,21 @@ function abrirModalDuvidaEnviada() {
 	} 
 }
 
+
+function abrirModalDuvidaEditada() {
+
+	var selectCategoria = $("#topic_category_id").val();
+	var selectSubcategoria = $("#topic_subcategory_id").val();
+	var selectTitulo = $("#topic_titulo").val();
+	var selectDescricao = $("#topic_descricao").val();
+
+	if (selectCategoria != "" && selectSubcategoria != "" && 
+		selectTitulo != "" && selectDescricao != "") {
+		$("#duvidaEditadaModal").modal("show");
+	} else {
+		console.log('Preencha os campos')
+	} 
+}
 
 function populaSelectSubcategoria(category_id) {
 	$.ajax({
@@ -108,6 +141,10 @@ function populaSelectSubcategoria(category_id) {
 
 function fecharModalDuvidaEnviada() {
 	$("#duvidaEnviadaModal").modal("hide");
+}
+
+function fecharModalDuvidaEditada() {
+	$("#duvidaEditadaModal").modal("hide");
 }
 
 function responderResposta(answer) {

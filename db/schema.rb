@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020215939) do
+ActiveRecord::Schema.define(version: 20171022150514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 20171020215939) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "answer_id"
+    t.bigint "project_id"
     t.index ["answer_id"], name: "index_answers_on_answer_id"
+    t.index ["project_id"], name: "index_answers_on_project_id"
     t.index ["topic_id"], name: "index_answers_on_topic_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
@@ -120,6 +122,7 @@ ActiveRecord::Schema.define(version: 20171020215939) do
   end
 
   add_foreign_key "answers", "answers"
+  add_foreign_key "answers", "projects"
   add_foreign_key "answers", "topics"
   add_foreign_key "answers", "users"
   add_foreign_key "projects", "users"

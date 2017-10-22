@@ -1,8 +1,36 @@
+<%= render partial: "dashboard/duvidaEditada" %>
 <section id="questionMake" class="col-md-12">
 	<div class="col-md-8 col-md-offset-2 padraoBox">
 		<div id="facaASuaPergunta" class="col-md-12">
 			<h3>Edite o seu tópico</h3>
-			<%= render partial: 'layouts/question' %>
+			<div class="col-md-12" style="padding: 0;">
+				<%= simple_form_for @topic, :url => {:controller => 'topics', :action => 'update', :remote => true}, :method => :patch do |f| %>
+					<div class="col-md-6" style="margin-top: 10px; text-align: left;">
+						<h5>Categoria:</h5>
+						<%= f.association :category, label: 'Categoria', collection: @categories, label_method: :nome, input_html: {class: "form-control col-md-9", placeholder: "Categoria"}, :label => false %>
+					</div>
+					<div class="col-md-6" style="margin-top: 10px; text-align: left;">
+						<h5>Subcategoria:</h5>
+						<%= f.association :subcategory, label: 'Subcategoria', collection: @subcategories, label_method: :nome, input_html: { class: "form-control col-md-9", placeholder: "Subcategoria" }, :label => false %>
+					</div>
+					<div class="col-md-12" style="margin-top: 10px;">
+						<h5>Titulo:</h5>
+						<%= f.input :titulo, required: true, input_html: { class: "form-control col-md-9" }, :label => false %>
+					</div>
+					<div class="col-md-12" style="margin-top: 10px;">
+						<h5>Descrição:</h5>
+						<%= f.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9" }, :label => false %>
+					</div>
+					<div class="col-md-12" style="margin-bottom: 20px; margin-top: 10px;">
+						<%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+						<%= f.button :submit, "EDITAR A SUA DÚVIDA", class: "btn btn-success bigDefaultButton", :onclick => "abrirModalDuvidaEditada()", :id => "botaoEnviarDuvida", :label => false %>
+					</div>
+				<% end %>
+			</div>
+
+
+
+
 		</div>
 	</div>
 </section>

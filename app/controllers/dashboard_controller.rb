@@ -4,7 +4,12 @@ layout 'dashboard'
 
 def index
 	@topic = Topic.new
-	@topics = Topic.order('created_at DESC')
+	logger.debug(@topic.inspect)
+	if params[:topic]
+		@topics = Topic.search(params[:topic][:category_id], params[:topic][:subcategory_id]).order('created_at DESC')
+	else
+		@topics = Topic.all.order('created_at DESC')
+	end
 	@user = current_user
 	@categories = Category.all
 	@category = Category.new

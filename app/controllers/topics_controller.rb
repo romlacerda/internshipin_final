@@ -17,6 +17,11 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
 
+  def search
+    @topics = Topic.where('category_id = ? and subcategory_id = ?', params[:category_id][:subcategory_id])
+
+  end
+
   # GET /topics/1/edit
   def edit
   end
@@ -31,15 +36,7 @@ class TopicsController < ApplicationController
   # PATCH/PUT /topics/1
   # PATCH/PUT /topics/1.json
   def update
-    respond_to do |format|
-      if @topic.update(topic_params)
-        format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
-        format.json { render :show, status: :ok, location: @topic }
-      else
-        format.html { render :edit }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
-    end
+    @topic.update(topic_params)
   end
 
   # DELETE /topics/1
