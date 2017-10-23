@@ -26,15 +26,7 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
-    respond_to do |format|
-      if @answer.save
-        #format.html { redirect_to show_topic_dashboard_path(@answer.topic_id), notice: 'Answer was successfully created.' }
-        #format.json { render :show, status: :created, location: @answer }
-      else
-        format.html { render :new }
-        format.json { render json: @answer.errors, status: :unprocessable_entity }
-      end
-    end
+    @answer.save
   end
 
   # PATCH/PUT /answers/1
@@ -70,6 +62,6 @@ class AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:descricao, :user_id, :topic_id, :answer_id)
+      params.require(:answer).permit(:descricao, :user_id, :topic_id, :answer_id, :project_id)
     end
 end

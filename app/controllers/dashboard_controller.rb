@@ -67,6 +67,10 @@ def project
 	@user = current_user
 	@submissionsCount = Submission.count('project_id')
 	@members = Submission.where(:project_id => params[:id])
+	@answer = Answer.new
+	@answers = Answer.where(:project_id => @project.id)
+	@answersChild = Answer.all
+	@answersCount = Answer.where(:project_id => params[:id]).count
 end
 
 def editProject
