@@ -48,7 +48,12 @@ end
 def projects
 	@user = current_user
 	@project = Project.new
-	@projects = Project.order('created_at DESC')
+	logger.debug(@project.inspect)	
+	if params[:project]
+		@projects = Project.search(params[:project][:titulo], params[:project][:datainicio], params[:project][:datafim], params[:project][:status], params[:project][:max_users]).order('created_at DESC')
+	else
+		@projects = Project.all.order('created_at DESC')
+	end
 	@submissionsCount = Submission.where(:project_id => params[:id]).count
 end
 

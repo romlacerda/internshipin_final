@@ -61,7 +61,7 @@
 	<div class="col-md-12 padraoBox">
 		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
 			<div class="data pull-left col-md-2">
-				<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
+				<%= image_tag(a.user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
 			</div>
 			<div class="col-md-10">
 				<div class="pull-right">
@@ -84,7 +84,7 @@
 			<div class="col-md-10 padraoBoxInverse pull-right">
 				<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
 					<div class="data pull-left col-md-2">
-						<%= image_tag('ronaldo-default', :class => "img-circle img-responsive usuarioFotoTopic") %>
+						<%= image_tag(aC.user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
 					</div>
 					<div class="col-md-10">
 						<div class="pull-right">
@@ -104,18 +104,14 @@
 		<% end %>
 	<% end %>
 
-	<div class="col-md-9 padraoBox pull-right caixaResposta" style="display: none;" id="caixaDeResposta_<%= a.id %>">
-		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
-			<div class="col-md-12">
-				<%= simple_form_for @answer do |an| %>
-					<%= an.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px;" }, :label => false %>
-					<%= an.input :user_id, as: :hidden, input_html: { value: @user.id } %>
-					<%= an.input :topic_id, as: :hidden, input_html: { value: nil } %>
-					<%= an.input :answer_id, as: :hidden, input_html: { value: a.id } %>
-					<%= an.button :submit, "RESPONDER", class: "btn btn-success botaoEnviarDuvida", :controller => "answers" %>
-				<% end %>
-			</div>
-		</div>	
+	<div class="col-md-9 breakPaddingInput pull-right" style="display: none;" id="caixaDeResposta_<%= a.id %>">
+		<%= simple_form_for @answer do |an| %>
+			<%= an.input :descricao, as: :text, required: true, input_html: { class: "form-control respostaParaResposta", style: "margin-bottom: 12px; height: 80px" }, :label => false %>
+			<%= an.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+			<%= an.input :topic_id, as: :hidden, input_html: { value: nil } %>
+			<%= an.input :answer_id, as: :hidden, input_html: { value: a.id } %>
+			<%= an.button :submit, "RESPONDER", class: "btn btn-success bigDefaultButton col-md-5 pull-right", :controller => "answers" %>
+		<% end %>
 	</div>
 
 	<!-- teste -->
