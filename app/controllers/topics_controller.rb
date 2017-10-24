@@ -54,10 +54,26 @@ class TopicsController < ApplicationController
   # DELETE /topics/1
   # DELETE /topics/1.json
   def destroy
-    @topic.destroy
+    @topic = Topic.find_by_id(params[:id])
+    @user = current_user
+    #@answerChild = Answer.find_by_answer_id(params[:id])
+    #@answerChild.destroy
+    @answers = Answer.where(:topic_id => params[:id])
+    if @answers.present?
+        @answerChild = Answer.where(:answer_id => @answers.ids)
+        if @answerChild.present?
+          @answerChild.destroy_all
+        end
+      @answers.destroy_all
+    end
+
+    @topics = Topic.all.order('created_at DESC')
     respond_to do |format|
-      format.html { redirect_to topics_url, notice: 'Topic was successfully destroyed.' }
-      format.json { head :no_content }
+      if @topic.destroy
+        format.js  # this will look for a file names create.js.erb in views/links directory
+      else
+        render "new"
+      end
     end
   end
 

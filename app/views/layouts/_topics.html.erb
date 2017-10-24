@@ -1,29 +1,36 @@
 <div class="col-md-12">
 	<% @topics.each do |t| %>
-		<div class="container-fluid">
+		<div class="container-fluid breakPaddingInput">
 				<div class="col-md-12 box-topics">
 			<div class="data pull-left col-md-3">
 				<%= image_tag(t.user.avatar.url, :class=> "img-responsive img-circle perfil") %>
 				<p class="text-center"></p>
 			</div>
 			<div class="text pull-left col-md-9">
-				<div class="col-md-8" style="padding: 0; margin: 0;">
+				<div class="col-md-6" style="padding: 0; margin: 0;">
 					<h5 class="breakPaddingInput no-margin"><%= t.user.nome %></h5>
 				</div>
-				<div class="col-md-4" style="padding: 0; margin: 0;">
-					<div class="pull-right">
+				<div class="col-md-6" style="padding: 0; margin: 0;">
+					<div class="pull-right infos">
 						<%#= link_to("Editar", edit_topic_dashboard_path(t)) %>
 						<% if t.status.to_i == 0 %>
 							<%= image_tag('aberto') %>
 						<% else %>
 							<%= image_tag('finalizado') %>
 						<% end %>
+						<div class="pull-right excluirTopico">
+							<% if @user == t.user %>
+							<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :topics, :action => :destroy, :id => t.id}, :method => :delete, remote: true, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Tópico' %>
+							<% end %>
+						</div>
 					</div>
 				</div>
 				<p id="corpo-topic">
 					<%= link_to t.titulo, show_topic_dashboard_path(t) %>
 				</p>
-				<p class="pull-left" style="color: #6fb353; font-weight: bold;"><%= @answersCount %> RESPOSTAS</p>
+				<div class="col-md-12">
+					<p class="pull-left counting" style="color: #6fb353; font-weight: bold;"><%= @answersCount %> RESPOSTAS</p>
+				</div>
 			</div>
 		</div>
 		</div>

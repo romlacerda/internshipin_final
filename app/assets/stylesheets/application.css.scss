@@ -176,6 +176,44 @@ p{
 	}
 }
 
+#login-cadastro {
+
+		@media (max-width: 900px) {
+			padding-top: 1%;
+		}
+		h3 {
+			color: #47c5ad;
+			font-size: 32px;
+			font-family: 'Arimo', sans-serif;
+
+			@media (max-width: 900px ) {
+				margin-top: 0 !important;
+			}
+		}
+
+		.form-control {
+			padding: 10px;
+			height: 45px;
+		}
+		
+		#new_user > div {
+			padding-left: 0!important;
+		}
+		.btn {
+			background-color: #47c5ad;
+			border: none !important;
+			border-radius: 4px;
+			width: 100%;
+			margin-top: 15px;
+			height: 50px;
+			font-family: 'Arimo', sans-serif;
+
+			&:hover {
+				background-color: #7adcbb;
+			}
+		}
+	}
+
 
 /* Dashboard */
 .navbar {
@@ -503,6 +541,22 @@ margin-top: 200px;
 		}
 		h5 {font-size: 15px; color: #262626; font-weight: bold; font-family: 'Arimo', sans-serif;}
 		.perfil{border: 1px solid #a2b6bc;}
+		.text {
+			@media (max-width: 767px) {
+				text-align: center;
+			}
+		}
+		.infos {
+			@media(max-width: 767px) {
+				float: none !important;
+			}
+		}
+		.counting {
+			@media (max-width: 767px) {
+				text-align: center;
+				float: none !important;
+			}
+		}
 	}
 }
 
@@ -765,3 +819,5 @@ a:hover {
 
  .submissions {border: 1px solid #fff;}
  .respostaParaResposta {background-color: #fff !important;}
+
+ .excluirTopico { margin-left: 5px;}
