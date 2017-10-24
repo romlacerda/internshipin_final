@@ -57,7 +57,20 @@ class AnswersController < ApplicationController
   # DELETE /answers/1.json
   def destroy
     @answer = Answer.find_by_id(params[:id])
-    @answer.destroy
+    @answersChild = Answer.all
+    @answerNew = Answer.new
+    @user = current_user
+    @topic = Topic.find_by_id(params[:topic_id])
+    @answerChild = Answer.find_by_answer_id(params[:id])
+    @answerChild.destroy
+    @answers = Answer.where(:topic_id => params[:topic_id])
+    respond_to do |format|
+      if @answer.destroy
+        format.js  # this will look for a file names create.js.erb in views/links directory
+      else
+        render "new"
+      end
+    end
   end
 
   private

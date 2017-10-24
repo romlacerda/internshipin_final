@@ -12,7 +12,7 @@
 			</div>
 			<div class="col-md-10">
 				<div class="pull-right">
-					<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => a.id}, :method => :delete, data: {confirm: 'Ctz?'}, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
+					<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => a.id, :topic_id => a.topic.id}, :method => :delete, remote: true, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
 				</div>
 				<h4><%= a.user.nome %></h4>
 				<p><%= a.descricao %></p>
@@ -35,7 +35,7 @@
 					</div>
 					<div class="col-md-10">
 						<div class="pull-right">
-							<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => aC.id}, :method => :delete, data: {confirm: 'Ctz?'}, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
+							<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => aC.id, :topic_id => a.topic.id}, :method => :delete, remote: true, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
 						</div>
 						<h4><%= aC.user.nome %></h4>
 						<p><%= aC.descricao %></p>
