@@ -490,7 +490,7 @@ p{
 margin-top: 200px;
 }
 	h3 {
-		color: #666666;
+		color: #535353;
 		font-size: 28px;
 		font-family: 'Arimo', sans-serif;
 	}
@@ -520,7 +520,7 @@ margin-top: 200px;
 #topicos {
 	margin-top: 20px;
 	h3 {
-		color: #666666;
+		color: #535353;	
 		font-size: 28px;
 		font-family: 'Arimo', sans-serif;
 	}
@@ -821,3 +821,10 @@ a:hover {
  .respostaParaResposta {background-color: #fff !important;}
 
  .excluirTopico { margin-left: 5px;}
+
+ .labelPadrao {
+ 	color: #a2b6bc !important;
+ 	font-weight: bold;
+ 	font-family: 'Arimo', sans-serif;
+ 	font-size: 1.15em;
+ }

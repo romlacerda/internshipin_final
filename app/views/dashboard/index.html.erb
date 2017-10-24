@@ -1,8 +1,10 @@
 	<section id="questionMake" class="col-md-12">
 		<div class="col-md-8 col-md-offset-2 padraoBox">
 			<div id="facaASuaPergunta" class="col-md-12">
-				<h3>Qual é a sua dúvida?</h2>
-    				<%= render partial: "layouts/question" %>
+				<div class="col-md-12">
+					<h3>Qual é a sua dúvida?</h2>
+				</div>
+    			<%= render partial: "layouts/question" %>
 			</div>
 			
 		</div>
@@ -11,10 +13,10 @@
 	<section id="topicos" class="col-md-12">
 		<div class="col-md-8 col-md-offset-2 padraoBox">
 			<div id="facaASuaPergunta" class="col-md-12">
-				<h3>Perguntas</h3>
-
-				<h4>FILTRAR POR:</h4>
-
+				<div class="col-md-12">
+					<h3>Perguntas</h3>
+					<h4>FILTRAR POR:</h4>
+				</div>
 				<%= simple_form_for @topic, :url => dashboard_path, :method => "get" do |f| %>
 					<div class="col-md-6" style="margin-top: 10px; text-align: left;">
 						<%= f.association :category, label: 'Categoria', collection: @categories, label_method: :nome, input_html: {class: "form-control col-md-9"} %>
