@@ -52,7 +52,7 @@
 	<% end %>
 	
 	<div class="col-md-9 breakPaddingInput pull-right" style="display: none;" id="caixaDeResposta_<%= a.id %>">
-		<%= simple_form_for @answerNew do |an| %>
+		<%= simple_form_for @answerNew, :remote => true do |an| %>
 			<%= an.input :descricao, as: :text, required: true, input_html: { class: "form-control respostaParaResposta", style: "margin-bottom: 12px; height: 80px" }, :label => false %>
 			<%= an.input :user_id, as: :hidden, input_html: { value: @user.id } %>
 			<%= an.input :topic_id, as: :hidden, input_html: { value: nil } %>

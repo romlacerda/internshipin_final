@@ -99,14 +99,29 @@ p{
 #login-page {
 	padding: 0 !important;
 	background-color: #fff;
+	@media (max-width: 900px) {
+		width: 100vw;
+		height: 100vh;
+	
+	}
+
+	#logo {
+		@media (max-width: 900px) {
+			margin-top: 0 !important;
+
+		}
+	}
 
 	#fundo-alunos {
-		background-color: black;
-		height: 100vh;
-		margin: 0 !important;
-		background-image: asset-url('fundo-alunos');
-		background-size: 100%;
+			background-color: black;
+			height: 100vh;
+			margin: 0 !important;
+			background-image: asset-url('fundo-alunos');
+			background-size: 100%;
 
+		@media (min-width: 901px) {
+			display: block;
+		}
 		@media (max-width: 900px) {
 			display: none;
 		}
@@ -124,10 +139,17 @@ p{
 	}	
 	#login {
 
+		@media (max-width: 900px) {
+			padding-top: 40%;
+		}
 		h3 {
 			color: #47c5ad;
 			font-size: 32px;
 			font-family: 'Arimo', sans-serif;
+
+			@media (max-width: 900px ) {
+				margin-top: 0 !important;
+			}
 		}
 
 		.form-control {
@@ -215,15 +237,19 @@ p{
 	background-color: #75868e;
 	//height: 100vh;
 	padding: 0 !important;
-
+	
 	a {
 		color: #fff !important;
 		&:visited {color: #fff !important;}
 	}
 	#profile-photo {
+		@media(max-width: 900px) {
+			display: none;
+		}
 		padding: 0 !important;
 		position: absolute;
 		height: 20em;
+
 		img {
 			height: 100%;
 			width: 100%;
