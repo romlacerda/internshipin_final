@@ -30,15 +30,18 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(topic_params)
-    #@answers = Answer.where(:topic_id => params[:answer][:topic_id])
-    #@answersChild = Answer.all
-    #@answerNew = Answer.new
+    if params[:topic]
+      @topics = Topic.search(params[:topic][:category_id], params[:topic][:subcategory_id]).order('created_at DESC')
+    else
+      @topics = Topic.all.order('created_at DESC')
+    end
     @user = current_user
     respond_to do |format|
-    if @topic.save
-      format.js  # this will look for a file names create.js.erb in views/links directory
-    else
-      render "new"
+      if @topic.save
+        format.js  # this will look for a file names create.js.erb in views/links directory
+      else
+        render "new"
+      end
     end
   end
 

@@ -100,7 +100,15 @@ function abrirModalDuvidaEnviada() {
 		$("#duvidaEnviadaModal").modal("show");
 	} else {
 		console.log('Preencha os campos')
-	} 
+	}
+
+	setTimeout(function() {
+		$("#topic_category_id").val('');
+		$("#topic_subcategory_id").val('');
+		$("#topic_titulo").val('');
+		$("#topic_descricao").val('');
+	}, 100)
+
 }
 
 
