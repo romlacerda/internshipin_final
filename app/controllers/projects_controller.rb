@@ -70,10 +70,28 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project.destroy
+    @user = current_user
+    @project = Project.find_by_id(params[:id])
+    @projects = Project.all.order('created_at DESC')
+    @submissionsCount = Submission.where(:project_id => params[:id]).count
+    
+    @submissions = Submission.where(:project_id => params[:id])
+    @answers = Answer.where(:project_id => params[:id])
+
+    if @submissions.present?
+      @submissions.destroy_all
+    end
+
+    if @answers.present?
+      @answers.destroy_all
+    end
+
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
-      format.json { head :no_content }
+      if @project.destroy
+        format.js  # this will look for a file names create.js.erb in views/links directory
+      else
+        render "new"
+      end
     end
   end
 

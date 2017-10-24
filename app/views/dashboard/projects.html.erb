@@ -54,53 +54,9 @@
 	</div>
 </section>
 
-<section class="col-md-12" style="margin-top: 15px;">
-	<div class="col-md-8 col-md-offset-2 padraobox" style="padding-left: 0 !important; padding-right: 0 !important;">
-		<% @projects.each do |p| %>
-			<div class="box-projects">
-				<div class="dataProjeto pull-left col-md-3">
-					<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
-					<p class="text-center">
-						<b style="padding: 10px 0;"><%= p.user.nome %></b>
-						<% if p.status.to_i == 0 %>
-							<%= image_tag('aberto') %>
-						<% elsif p.status.to_i == 2 %>
-							<%= image_tag('finalizado') %>
-						<% end %>
-					</p>
-				</div>
-				<div class="text pull-left col-md-9">
-					<div class="col-md-4" style="padding: 0; margin: 0;">
-						<div class="pull-right">
-						<%#= link_to("Editar", edit_topic_dashboard_path(t)) %>
-						</div>
-					</div>
-					
-					<h4><%= link_to p.titulo, show_project_dashboard_path(p) %></h4>
-					<div class="col-md-12 breakPaddingInput">
-						<div class="col-md-6 breakPaddingInput">
-							<p class="pull-left"><b>INÍCIO:</b> <%= p.datainicio.try(:strftime,'%d/%m/%y %R') %></p>
-						</div>
-						<div class="col-md-6 breakPaddingInput">
-							<p class="pull-left"><b>FINAL:</b> <%= p.datafim.try(:strftime,'%d/%m/%y %R') %></p>
-						</div>
-					</div>
-					<p id="corpo-topic"><%= truncate(p.descricao, :length => 120) %></p>
-					<p><%#= t.subcategory.nome %></p>
-					<div class="infos-bottom">
-						<div class="col-md-6" style="padding-left: 0 !important;">
-							<p class="pLaranja pull-left">INSCRITOS: </p><b class="pull-left"> <%= @submissionsCount %> ALUNOS</b>
-						</div>
-						<div class="col-md-6" style="padding-left: 0 !important;">
-							<p class="pLaranja pull-left">LIMITE: </p><b class="pull-left"> <%= @submissionsCount %> INTEGRANTES</b>
-						</div>
-					</div>
-				</div>
-			</div>
-		<% end %>
-	</div>
-</section>
-
+<div id="projectsJS">
+	<%= render partial: 'layouts/projectList' %>
+</div>
 <script type="text/javascript">
   $(document).ready(function(){
   	$('.datepicker').datepicker({
