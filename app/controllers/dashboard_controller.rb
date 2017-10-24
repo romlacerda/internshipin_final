@@ -22,6 +22,7 @@ def topic
 	@categories = Category.all
 	@subcategories = Subcategory.all
 	@answer = Answer.new
+	@answerNew = Answer.new
 	@answers = Answer.where(:topic_id => @topic.id)
 	@answersChild = Answer.all
 	@answersCount = Answer.where(:topic_id => params[:id]).count

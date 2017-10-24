@@ -30,7 +30,16 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(topic_params)
-    @topic.save
+    #@answers = Answer.where(:topic_id => params[:answer][:topic_id])
+    #@answersChild = Answer.all
+    #@answerNew = Answer.new
+    @user = current_user
+    respond_to do |format|
+    if @topic.save
+      format.js  # this will look for a file names create.js.erb in views/links directory
+    else
+      render "new"
+    end
   end
 
   # PATCH/PUT /topics/1
