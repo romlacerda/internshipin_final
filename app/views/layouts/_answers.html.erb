@@ -14,7 +14,7 @@
 				<div class="pull-right">
 					<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => a.id, :topic_id => a.topic.id}, :method => :delete, remote: true, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
 				</div>
-				<h4><%= a.user.nome %></h4>
+				<h4><%= link_to (a.user.nome), perfil_show_path(a.user.id) %></h4>
 				<p><%= a.descricao %></p>
 				<div class="acoes pull-right">
 					<%= image_tag('vote-sim') %>
@@ -37,7 +37,7 @@
 						<div class="pull-right">
 							<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => aC.id, :topic_id => a.topic.id}, :method => :delete, remote: true, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
 						</div>
-						<h4><%= aC.user.nome %></h4>
+						<h4><%= link_to (aC.user.nome), perfil_show_path(aC.user.id) %></h4>
 						<p><%= aC.descricao %></p>
 						<div class="acoes pull-right">
 							<%= image_tag('vote-sim') %>

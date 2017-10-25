@@ -5,7 +5,7 @@
 				<div class="dataProjeto pull-left col-md-3">
 					<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
 					<p class="text-center">
-						<b style="padding: 10px 0;"><%= p.user.nome %></b>
+						<b style="padding: 10px 0;"><%= link_to (p.user.nome), perfil_show_path(p.user.id) %></b>
 						<% if p.status.to_i == 0 %>
 							<%= image_tag('aberto') %>
 						<% elsif p.status.to_i == 2 %>

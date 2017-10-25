@@ -5,10 +5,10 @@
 		<%= link_to("< VOLTAR AS DÚVIDAS" , dashboard_path, :class => "btn btn-default pull-right bigDefaultButton col-md-4") %>
 	</div>
 	<div class="col-md-12 padraoBox">
-		<div class="col-md-12" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
+		<div class="col-md-12 insideBox">
 			<div class="data pull-left col-md-3">
 				<%= image_tag(@topic.user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
-				<h3 class="usuarioInfo text-center"><%= @topic.user.nome %></h3>
+				<h3 class="usuarioInfo text-center"><%= link_to (@topic.user.nome), perfil_show_path(@topic.user.id) %></h3>
 				<div class="text-center col-md-12 breakPaddingInput">
 						<% if @topic.status.to_i == 0 %>
 							<%= image_tag('aberto') %>
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<h3 style="margin-bottom: 15px;"><%= @topic.titulo %></h3>
+				<h3 class="titleBox"><%= @topic.titulo %></h3>
 				<h4 style="margin-bottom: 25px;">
 					<%= @topic.category.nome %>
 					>

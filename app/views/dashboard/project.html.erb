@@ -8,7 +8,7 @@
 		<div class="col-md-12" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
 			<div class="data pull-left col-md-3">
 				<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
-				<h3 class="usuarioInfo text-center"><%= @project.user.nome %></h3>
+				<h3 class="usuarioInfo text-center"><%= link_to (@project.user.nome), perfil_show_path(@project.user.id) %></h3>
 				<div class="text-center col-md-12 breakPaddingInput">
 					<% if @project.status.to_i == 0 %>
 						<%= image_tag('aberto') %>
@@ -90,7 +90,7 @@
 				<div class="pull-right">
 					<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => a.id}, :method => :delete, data: {confirm: 'Ctz?'}, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
 				</div>
-				<h4><%= a.user.nome %></h4>
+				<h4><%= link_to (a.user.nome), perfil_show_path(a.user.id) %></h4>
 				<p><%= a.descricao %></p>
 				<div class="acoes pull-right">
 					<%= image_tag('vote-sim') %>
@@ -113,7 +113,7 @@
 						<div class="pull-right">
 							<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => aC.id}, :method => :delete, data: {confirm: 'Ctz?'}, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
 						</div>
-						<h4><%= aC.user.nome %></h4>
+						<h4><%= link_to (aC.user.nome), perfil_show_path(aC.user.id) %></h4>
 						<p><%= aC.descricao %></p>
 						<div class="acoes pull-right">
 							<%= image_tag('vote-sim') %>
