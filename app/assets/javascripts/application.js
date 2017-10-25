@@ -156,6 +156,14 @@ function fecharModalDuvidaEditada() {
 	$("#duvidaEditadaModal").modal("hide");
 }
 
+function fecharModalSobre() {
+	$("#editarSobre").modal("hide");
+}
+
 function responderResposta(answer) {
 	$("#caixaDeResposta_" + answer).show();
+}
+
+function editarSobre() {
+	$("#editarSobre").modal("show");
 }

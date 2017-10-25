@@ -9,12 +9,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		
 	end
 
+  	def update
+		#current_user.update avatar_params
+		current_user.update(about_params)
+		redirect_to root_path
+  	end
+
 	def updateAvatar
 		current_user.update_without_password avatar_params
 		current_user.save
 	end
 
 	private
+	  def about_params
+	  	params.require(:user).permit(:about)
+	  end
+
 	  def avatar_params
 	  	params.require(:user).permit(:avatar)
 	  end

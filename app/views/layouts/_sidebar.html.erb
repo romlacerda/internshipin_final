@@ -1,3 +1,5 @@
+<%= render partial: 'caixaSobre' %>
+
 <section>
 	<div class="col-md-3" id="sidebar-dashboard">
 		<div class="col-md-12" id="profile-photo">
@@ -22,8 +24,9 @@
 				<p>520 pt</p>
 			</div>
  -->			<div class="about">
-				<p>Sobre</p>
+				<p>Sobre - <%= link_to "Editar", nil, :onclick=>"editarSobre()", remote: true %></p>
 				<p class="text">
+					<br>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus ipsam consequuntur facere explicabo voluptate accusantium facilis voluptates mollitia fugiat illum labore beatae perferendis, quod, saepe nam quas, exercitationem recusandae eum.
 				</p>
 			</div>

@@ -1,0 +1,21 @@
+<div class="modal fade" id="editarSobre" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-md-12 text-center">
+          <h3>Sobre você</h3>
+            <%= simple_form_for @user, url: {:action => "update", :controller => "users/registrations"} do |us| %>
+              <%= us.input :about, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px;" }, :label => false %>
+              <%= us.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+              <%= us.button :submit, "EDITAR", class: "btn btn-success botaoEnviarDuvida" %>
+            <% end %>
+        </div>
+      </div>
+      <div class="modal-footer" style="margin-bottom: 20px;">
+        <div class="col-md-4 col-md-offset-4">
+        <%= button_tag("OK, FECHAR.", :class => "btn btn-default botaoModalPrimary", :onclick => "fecharModalSobre();") %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
