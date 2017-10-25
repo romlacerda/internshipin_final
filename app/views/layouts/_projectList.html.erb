@@ -6,7 +6,7 @@
 				<div class="dataProjeto pull-left col-md-3">
 					<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
 					<p class="text-center" style="padding: 5px 0;">
-						<b style="padding: 10px 0; font-size: 1.1em;"><%= link_to (p.user.nome), perfil_show_path(p.user.id) %></b>
+						<b style="padding: 10px 0; font-size: 1.2em;"><%= link_to (p.user.nome), perfil_show_path(p.user.id) %></b>
 					</p>
 					<div class="col-md-12">
 						<% if p.status.to_i == 0 %>
@@ -25,7 +25,7 @@
 					<div class="col-md-9 breakPaddingInput">
 						<h4><%= link_to p.titulo, show_project_dashboard_path(p) %></h4>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3 breakPaddingInput">
 						<div class="pull-right excluirTopico">
 							<% if @user == p.user %>
 							<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :projects, :action => :destroy, :id => p.id}, :method => :delete, remote: true, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Projeto' %>
@@ -34,10 +34,10 @@
 					</div>
 					<div class="col-md-12 breakPaddingInput">
 						<div class="col-md-6 breakPaddingInput">
-							<p class="pull-left"><b>INÍCIO:</b> <%= p.datainicio.try(:strftime,'%d/%m/%y %R') %></p>
+							<p class="pull-left"><b>INÍCIO:</b> <%= p.datainicio.try(:strftime,'%d/%m/%y') %></p>
 						</div>
 						<div class="col-md-6 breakPaddingInput">
-							<p class="pull-left"><b>FINAL:</b> <%= p.datafim.try(:strftime,'%d/%m/%y %R') %></p>
+							<p class="pull-left"><b>FINAL:</b> <%= p.datafim.try(:strftime,'%d/%m/%y') %></p>
 						</div>
 					</div>
 					<div class="col-md-12 breakPaddingInput">
@@ -45,7 +45,7 @@
 						<p><%#= t.subcategory.nome %></p>
 						<div class="infos-bottom">
 							<div class="col-md-6" style="padding-left: 0 !important;">
-								<p class="pLaranja pull-left">INSCRITOS: </p><b class="pull-left"> 
+								<p class="pLaranja pull-left">INSCRITOS: </p><b class="pull-left bAzul"> 
 								<% i = 0 %>
 								<% @submissions.each do |s| %>
 									<% if s.project_id == p.id %>
@@ -55,7 +55,7 @@
 								<%= i %> ALUNOS</b>
 							</div>
 							<div class="col-md-6" style="padding-left: 0 !important;">
-								<p class="pLaranja pull-left">LIMITE: </p><b class="pull-left"> <%= p.max_users %> INTEGRANTES</b>
+								<p class="pLaranja pull-left">LIMITE: </p><b class="pull-left bAzul"> <%= p.max_users %> INTEGRANTES</b>
 							</div>
 						</div>
 					</div>

@@ -6,11 +6,11 @@
 		</div>
 		<div class="col-md-12 box-imagem-perfil">
 			<div id="imagem-perfil" class="col-md-3 col-md-offset-4">
-				<%= image_tag('semfoto', :class => "img-circle img-responsive") %>
+				<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive") %>
 				<div class="text-center">
 					<h3><%= @user.nome + " " %></h3>
+					<h4 style="color: black;"><%= @user.access %></h4>
 					<h4>Sistemas de Informação</h4>
-					<h4><%= @user.access.to_s %></h4>
 				</div>
 			</div>
 		</div>

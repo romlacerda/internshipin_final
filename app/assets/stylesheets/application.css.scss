@@ -604,7 +604,11 @@ margin-top: 200px;
 		color: #999;
 	}
 	p {color: #999; font-family: 'Arimo', sans-serif; font-size: 14px;}
-	.usuarioInfo{font-size: 16px;}
+	.usuarioInfo{font-size: 1.2em; 
+		a {
+			color: #262626;
+		}
+	}
 	.statusTopic {
 		background-color: #4da82c; 
 		color: #fff; 
@@ -724,6 +728,7 @@ margin-top: 200px;
 		background-color: #fff;
 		p {
 			margin-bottom: 0 !important;
+			color: #75868e;
 		}
 		h4{
 			font-size: 25px;
@@ -732,12 +737,11 @@ margin-top: 200px;
 		}
 		a {
 			color: #d5652c;
-
 		}
 }	
 
 .pLaranja {
-	color: #d5652c;
+	color: #d5652c !important;
 	font-weight: bold;
 }
 
@@ -835,3 +839,26 @@ a:hover {
  }
 
  .titleBox{margin-top: 10px; margin-bottom: 15px;}
+
+ .dataProjeto {
+
+ 	a{
+ 		color: #262626;
+
+ 		&:hover {
+ 			color: #262626;
+ 		}
+
+ 		&:visited {
+ 			color: #262626;
+ 		}
+
+ 		&:focus {
+ 			color: #262626;
+ 		}
+ 	}
+ }
+
+ .bAzul {
+ 	color: #75868e;
+ }

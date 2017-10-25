@@ -84,10 +84,6 @@ function searchTopics() {
 	})
 }
 
-
-
-
-
 function abrirModalDuvidaEnviada() {
 
 	var selectCategoria = $("#topic_category_id").val();
@@ -126,6 +122,11 @@ function abrirModalDuvidaEditada() {
 		console.log('Preencha os campos')
 	} 
 }
+
+function abrirModalProjetoEnviado() {
+	$("#modalProjetoEnviado").modal("show");
+}
+
 
 function populaSelectSubcategoria(category_id) {
 	$.ajax({

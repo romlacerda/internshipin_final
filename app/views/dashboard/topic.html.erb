@@ -41,7 +41,7 @@
 	<% if (@topic.status != 1) %>
 	<div class="col-md-12 breakPaddingInput" id="answering" style="margin-top: 20px;">
 		<%= simple_form_for @answer, remote: true do |a| %>
-			<%= a.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px; background-color: #fff; height: 50px;" }, :label => false %>
+			<%= a.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px; background-color: #fff; height: 50px;" }, :label => false, :placeholder => "Digite sua resposta:" %>
 			<%= a.input :user_id, as: :hidden, input_html: { value: @user.id } %>
 			<%= a.input :topic_id, as: :hidden, input_html: { value: @topic.id } %>
 			<%= a.button :submit, "RESPONDER", class: "btn btn-success col-md-4 pull-right bigDefaultButton", :controller => "answers" %>
