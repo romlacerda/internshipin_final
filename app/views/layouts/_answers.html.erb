@@ -6,7 +6,7 @@
 	</div>
 	<% @answers.each do |a| %>
 	<div class="col-md-12 padraoBox">
-		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
+		<div class="col-md-12 boxAnswer container-fluid" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
 			<div class="data pull-left col-md-2">
 				<%= image_tag(a.user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
 			</div>

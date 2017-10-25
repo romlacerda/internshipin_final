@@ -332,8 +332,21 @@ p{
 		}
 
 	#profile-info {
-		margin-top: 11em;
+		@media (min-width: 1200px) {
+			margin-top: 11em;
+		}
 
+		@media (max-width: 767px) {
+			padding: 20px;
+		}
+
+		h2 {
+			@media (max-width: 767px) {
+				margin-top: 0;
+			}
+		}
+
+		
 		p {
 			color: #fff;
 			font-size: 1.2em !important;
@@ -501,6 +514,9 @@ margin-top: 200px;
 	background-color: #fff;
 	border: 1px solid #a2b6bc;
 	border-radius: 10px;
+	@media (max-width: 767px) {
+		margin-top: 50px;
+	}
 }
 .padraoBoxInverse {
 	background-color: #dee7eb;
@@ -618,7 +634,13 @@ margin-top: 200px;
 		padding: 4px 0
 	}
 	
-	.answersTopic {margin-top: 20px; margin-bottom: 20px;}
+	.answersTopic {
+		margin-top: 20px; 
+		margin-bottom: 20px;
+		@media (max-width: 767px) {
+			margin-top: 80px;
+		}
+	}
 
 
 	#answersTopic {
@@ -630,7 +652,11 @@ margin-top: 200px;
 			font-weight: bold;
 		}
 
-		.boxAnswer {margin-top: 10px; margin-bottom: 10px;}
+		.boxAnswer {
+			margin-top: 10px; 
+			margin-bottom: 10px;
+
+		}
 		.padraoBox {margin-bottom: 13px;}
 	}
 }
@@ -836,6 +862,13 @@ a:hover {
  .insideBox {
  	margin-top: 30px;
  	margin-bottom: 30px;
+	.data {
+		@media (max-width: 767px) {
+			width: 50% !important;
+			float: none !important;
+			margin: 0 auto;
+		}
+	}
  }
 
  .titleBox{margin-top: 10px; margin-bottom: 15px;}
