@@ -528,7 +528,8 @@ margin-top: 200px;
 	.box-topics {
 		border-radius: 10px;
 		border: 1px solid #a2b6bc;
-		padding: 20px;
+		padding-top: 20px;
+		padding-bottom: 20px;
 		margin-bottom: 10px;
 		min-height: 145px;
 		@media (max-width: 767px) {
@@ -662,11 +663,10 @@ margin-top: 200px;
 }
 
 #corpo-topic {
-	margin-top: 40px;
-	margin-bottom: 25px !important;
 	font-size: 14px;
 	font-family: 'Arimo', sans-serif;
 	color: #a0a1a2;
+	padding: 20px 0;
 }
 
 .botaoModalPrimary {

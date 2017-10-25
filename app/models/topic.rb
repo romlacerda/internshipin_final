@@ -7,5 +7,4 @@ class Topic < ApplicationRecord
   def self.search(category_id, subcategory_id)
 	self.where('category_id = ? and subcategory_id = ?', category_id, subcategory_id)
   end
-
 end

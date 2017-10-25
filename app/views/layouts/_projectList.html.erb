@@ -1,17 +1,20 @@
 <section class="col-md-12" style="margin-top: 15px;">
+	<div class="container-fluid breakPaddingInput">
 	<div class="col-md-8 col-md-offset-2 padraobox" style="padding-left: 0 !important; padding-right: 0 !important;">
 		<% @projects.each do |p| %>
-			<div class="box-projects">
+			<div class="box-projects col-md-12">
 				<div class="dataProjeto pull-left col-md-3">
 					<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
-					<p class="text-center">
-						<b style="padding: 10px 0;"><%= link_to (p.user.nome), perfil_show_path(p.user.id) %></b>
+					<p class="text-center" style="padding: 5px 0;">
+						<b style="padding: 10px 0; font-size: 1.1em;"><%= link_to (p.user.nome), perfil_show_path(p.user.id) %></b>
+					</p>
+					<div class="col-md-12">
 						<% if p.status.to_i == 0 %>
 							<%= image_tag('aberto') %>
 						<% elsif p.status.to_i == 2 %>
 							<%= image_tag('finalizado') %>
 						<% end %>
-					</p>
+					</div>
 				</div>
 				<div class="text pull-left col-md-9">
 					<div class="col-md-4" style="padding: 0; margin: 0;">
@@ -19,7 +22,7 @@
 						<%#= link_to("Editar", edit_topic_dashboard_path(t)) %>
 						</div>
 					</div>
-					<div class="col-md-9">
+					<div class="col-md-9 breakPaddingInput">
 						<h4><%= link_to p.titulo, show_project_dashboard_path(p) %></h4>
 					</div>
 					<div class="col-md-3">
@@ -37,18 +40,28 @@
 							<p class="pull-left"><b>FINAL:</b> <%= p.datafim.try(:strftime,'%d/%m/%y %R') %></p>
 						</div>
 					</div>
-					<p id="corpo-topic"><%= truncate(p.descricao, :length => 120) %></p>
-					<p><%#= t.subcategory.nome %></p>
-					<div class="infos-bottom">
-						<div class="col-md-6" style="padding-left: 0 !important;">
-							<p class="pLaranja pull-left">INSCRITOS: </p><b class="pull-left"> <%= @submissionsCount %> ALUNOS</b>
-						</div>
-						<div class="col-md-6" style="padding-left: 0 !important;">
-							<p class="pLaranja pull-left">LIMITE: </p><b class="pull-left"> <%= @submissionsCount %> INTEGRANTES</b>
+					<div class="col-md-12 breakPaddingInput">
+						<p id="corpo-topic"><%= truncate(p.descricao, :length => 120) %></p>
+						<p><%#= t.subcategory.nome %></p>
+						<div class="infos-bottom">
+							<div class="col-md-6" style="padding-left: 0 !important;">
+								<p class="pLaranja pull-left">INSCRITOS: </p><b class="pull-left"> 
+								<% i = 0 %>
+								<% @submissions.each do |s| %>
+									<% if s.project_id == p.id %>
+										<% i += 1 %>
+									<% end %>
+								<% end %>
+								<%= i %> ALUNOS</b>
+							</div>
+							<div class="col-md-6" style="padding-left: 0 !important;">
+								<p class="pLaranja pull-left">LIMITE: </p><b class="pull-left"> <%= p.max_users %> INTEGRANTES</b>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		<% end %>
+	</div>
 	</div>
 </section>

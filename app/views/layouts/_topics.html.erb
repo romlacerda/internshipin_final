@@ -1,7 +1,7 @@
 <div class="col-md-12">
 	<% @topics.each do |t| %>
 		<div class="container-fluid breakPaddingInput">
-				<div class="col-md-12 box-topics">
+			<div class="col-md-12 box-topics">
 			<div class="data pull-left col-md-3">
 				<%= image_tag(t.user.avatar.url, :class=> "img-responsive img-circle perfil") %>
 				<p class="text-center"></p>
@@ -28,8 +28,16 @@
 				<p id="corpo-topic">
 					<%= link_to t.titulo, show_topic_dashboard_path(t) %>
 				</p>
-				<div class="col-md-12">
-					<p class="pull-left counting" style="color: #6fb353; font-weight: bold;"><%= @answersCount %> RESPOSTAS</p>
+				<div class="col-md-12 breakPaddingInput">
+					<p class="pull-left counting" style="color: #6fb353; font-weight: bold;">
+						<% i = 0 %>
+						<% @answers.each do |a| %>
+							<% if a.topic_id == t.id %>
+								<% i += 1 %>
+							<% end %>
+						<% end %>
+						<%= i %> RESPOSTAS
+					</p>
 				</div>
 			</div>
 		</div>

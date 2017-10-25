@@ -14,6 +14,7 @@ def index
 	@categories = Category.all
 	@category = Category.new
 	@subcategories = Subcategory.all
+	@answers = Answer.all
 end
 
 def topic
@@ -55,7 +56,8 @@ def projects
 	else
 		@projects = Project.all.order('created_at DESC')
 	end
-	@submissionsCount = Submission.where(:project_id => params[:id]).count
+	@submissions = Submission.all
+
 end
 
 def newProject
