@@ -549,9 +549,28 @@ margin-top: 200px;
 		padding-bottom: 20px;
 		margin-bottom: 10px;
 		min-height: 145px;
+
 		@media (max-width: 767px) {
 			min-height: 25em;
 		}
+
+
+	 	a{
+	 		color: #262626;
+
+	 		&:hover {
+	 			color: #262626;
+	 		}
+
+	 		&:visited {
+	 			color: #262626;
+	 		}
+
+	 		&:focus {
+	 			color: #262626;
+	 		}
+	 	}
+		
 		h4{
 			font-size: 20px;
 			font-weight: bold;

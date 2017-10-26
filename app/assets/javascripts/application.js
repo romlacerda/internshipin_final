@@ -128,6 +128,11 @@ function abrirModalProjetoEnviado() {
 }
 
 
+function abrirSubmissionModal() {
+	$("#submissionModal").modal("show");
+}
+
+
 function populaSelectSubcategoria(category_id) {
 	$.ajax({
 		type: 'POST',
@@ -150,6 +155,11 @@ function populaSelectSubcategoria(category_id) {
 
 function fecharModalDuvidaEnviada() {
 	$("#duvidaEnviadaModal").modal("hide");
+}
+
+function fecharSubmissionModal() {
+	$("#submissionModal").modal("hide");
+	window.location.reload();
 }
 
 function fecharModalDuvidaEditada() {

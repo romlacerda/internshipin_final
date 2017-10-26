@@ -1,0 +1,71 @@
+
+	<!-- Respostas (Answers) -->
+	<div id="answersTopic">
+	<div class="col-md-12 resetPadding">
+		<div class="answersTopic">
+			<h3>Outras Respostas (<%= @answersCount %>):</h3>
+		</div>
+	</div>
+	<% @answers.each do |a| %>
+	<div class="col-md-12 padraoBox">
+		<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
+			<div class="data pull-left col-md-2">
+				<%= image_tag(a.user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
+			</div>
+			<div class="col-md-10">
+				<div class="pull-right">
+					<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => a.id}, :method => :delete, data: {confirm: 'Ctz?'}, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
+				</div>
+				<h4><%= link_to (a.user.nome), perfil_show_path(a.user.id) %></h4>
+				<p><%= a.descricao %></p>
+				<div class="acoes pull-right">
+					<%= image_tag('vote-sim') %>
+					<%= image_tag('vote-nao') %>
+					<%= link_to image_tag('responder'), {:remote => true}, :onclick => "responderResposta(" + a.id.to_s + ")", :class => "responder", 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Responder'  %>
+				</div>
+				<p><%#= t.subcategory.nome %></p>
+			</div>
+		</div>
+	</div>
+
+	<% @answersChild.each do |aC| %>
+		<% if (a.id == aC.answer_id) %>
+			<div class="col-md-10 padraoBoxInverse pull-right">
+				<div class="col-md-12 boxAnswer" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
+					<div class="data pull-left col-md-2">
+						<%= image_tag(aC.user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
+					</div>
+					<div class="col-md-10">
+						<div class="pull-right">
+							<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => aC.id}, :method => :delete, data: {confirm: 'Ctz?'}, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
+						</div>
+						<h4><%= link_to (aC.user.nome), perfil_show_path(aC.user.id) %></h4>
+						<p><%= aC.descricao %></p>
+						<div class="acoes pull-right">
+							<%= image_tag('vote-sim') %>
+							<%= image_tag('vote-nao') %>
+							<%= link_to image_tag('responder'), {:remote => true}, :onclick => "responderResposta(" + aC.id.to_s + ")", :class => "responder", 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Responder'  %>
+						</div>
+						<p><%#= t.subcategory.nome %></p>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+
+	<div class="col-md-9 breakPaddingInput pull-right" style="display: none;" id="caixaDeResposta_<%= a.id %>">
+		<%= simple_form_for @answer do |an| %>
+			<%= an.input :descricao, as: :text, required: true, input_html: { class: "form-control respostaParaResposta", style: "margin-bottom: 12px; height: 80px" }, :label => false %>
+			<%= an.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+			<%= an.input :topic_id, as: :hidden, input_html: { value: nil } %>
+			<%= an.input :answer_id, as: :hidden, input_html: { value: a.id } %>
+			<%= an.button :submit, "RESPONDER", class: "btn btn-success bigDefaultButton col-md-5 pull-right", :controller => "answers" %>
+		<% end %>
+	</div>
+
+	<!-- teste -->
+	
+
+	<% end %>
+		
+	</div>
