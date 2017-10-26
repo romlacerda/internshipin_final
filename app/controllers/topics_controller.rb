@@ -30,6 +30,7 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(topic_params)
+    @answers = Answer.all
     if params[:topic]
       @topics = Topic.search(params[:topic][:category_id], params[:topic][:subcategory_id]).order('created_at DESC')
     else

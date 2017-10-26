@@ -18,6 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	def updateAvatar
 		current_user.update_without_password avatar_params
 		current_user.save
+		redirect_to root_path
 	end
 
 	private
