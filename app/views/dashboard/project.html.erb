@@ -8,8 +8,8 @@
 	<div class="col-md-12 padraoBox">
 		<div class="col-md-12" style="padding: 0; padding-top: 15px; padding-bottom: 15px;">
 			<div class="data pull-left col-md-3">
-				<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
-				<h3 class="usuarioInfo text-center"><%= link_to (@project.user.nome), perfil_show_path(@project.user.id) %></h3>
+				<%= image_tag(@project.user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
+				<h3 class="usuarioInfo text-center"><%= link_to (@project.user.nome + " " + @project.user.sobrenome), perfil_show_path(@project.user.id) %></h3>
 				<div class="text-center col-md-12 breakPaddingInput">
 					<% if @project.status == "Aberto" %>
 						<%= image_tag('aberto') %>

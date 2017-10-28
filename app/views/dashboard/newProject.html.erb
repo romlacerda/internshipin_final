@@ -40,7 +40,7 @@
 					<%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>
 				</div>
 				<div class="col-md-12">
-					<%= f.button :submit, "CADASTRAR", class: "btn btn-success botaoEnviarDuvida", :onclick => "abrirModalProjetoEnviado()", :id => "botaoEnviarProjeto" %>
+					<%= f.button :submit, "CADASTRAR", class: "btn btn-success botaoEnviarDuvida", :onclick => "window.location.reload()", :id => "botaoEnviarProjeto", remote: true %>
 				</div>
 			<% end %>
 		</div>
