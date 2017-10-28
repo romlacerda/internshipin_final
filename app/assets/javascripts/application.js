@@ -19,10 +19,15 @@
 
 
 $(document).on('turbolinks:load', function() {
+    $.ajaxSetup({
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token',
+                             $('meta[name="csrf-token"]').attr('content'));
+    }
+});
     $('[data-toggle="tooltip"]').tooltip(); 
 	$("#topic_subcategory_id").html('');
 	$("#topic_category_id").on('change', function() {
-		$("#topic_subcategory_id").prop('disabled', false);
 		var categoria = $("#topic_category_id").val();
 		populaSelectSubcategoria(categoria);
 	});
@@ -176,4 +181,8 @@ function responderResposta(answer) {
 
 function editarSobre() {
 	$("#editarSobre").modal("show");
+}
+
+function responderRespostaHaHa() {
+	window.location.reload();
 }

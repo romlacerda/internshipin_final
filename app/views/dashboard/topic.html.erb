@@ -8,17 +8,19 @@
 		<div class="col-md-12 insideBox">
 			<div class="data pull-left col-md-3">
 				<%= image_tag(@topic.user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
-				<h3 class="usuarioInfo text-center"><%= link_to (@topic.user.nome), perfil_show_path(@topic.user.id) %></h3>
+				<h3 class="usuarioInfo text-center"><%= link_to (@topic.user.nome + " " + @topic.user.sobrenome), perfil_show_path(@topic.user.id) %></h3>
 				<div class="text-center col-md-12 breakPaddingInput">
-						<% if @topic.status.to_i == 0 %>
+						<% if @topic.status == "Aberto" %>
 							<%= image_tag('aberto') %>
-						<% else %>
+						<% elsif @topic.status == "Fechado" %>
 							<%= image_tag('finalizado') %>
 						<% end %>
 					<% if (@topic.user_id == @user.id) %>
 						<ul class="col-md-12 breakPaddingInput">
-							<li><%= link_to("Editar", edit_topic_dashboard_path(@topic)) %></li>
-							<li><%= link_to("Fechar Tópico", close_topic_path(@topic)) %></li>
+							<% if (@topic.status == "Aberto") %>
+								<li><%= link_to("Editar", edit_topic_dashboard_path(@topic)) %></li>
+								<li><%= link_to("Fechar Tópico", close_topic_path(@topic)) %></li>
+							<% end %>
 						</ul>
 					<% end %>
 				</div>
@@ -36,15 +38,15 @@
 		</div>
 
 	</div>
-
+	
 	<!-- Caixa de Resposta -->
-	<% if (@topic.status != 1) %>
+	<% if (@topic.status != "Fechado") %>
 	<div class="col-md-12 breakPaddingInput" id="answering" style="margin-top: 20px;">
 		<%= simple_form_for @answer, remote: true do |a| %>
 			<%= a.input :descricao, as: :text, required: true, input_html: { class: "form-control col-md-9", style: "margin-bottom: 12px; background-color: #fff; height: 50px;" }, :label => false, :placeholder => "Digite sua resposta:" %>
 			<%= a.input :user_id, as: :hidden, input_html: { value: @user.id } %>
 			<%= a.input :topic_id, as: :hidden, input_html: { value: @topic.id } %>
-			<%= a.button :submit, "RESPONDER", class: "btn btn-success col-md-4 pull-right bigDefaultButton", :controller => "answers" %>
+			<%= a.button :submit, "RESPONDER", class: "btn btn-success col-md-4 pull-right bigDefaultButton", :controller => "answers", :onclick => "responderRespostaHaHa()" %>
 		<% end %>
 	</div>
 	<% end %>

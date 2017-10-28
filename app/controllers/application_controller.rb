@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+ protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   def after_sign_in_path_for(resource)
   	dashboard_path
   end

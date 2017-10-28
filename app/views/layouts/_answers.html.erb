@@ -17,8 +17,8 @@
 				<h4><%= link_to (a.user.nome), perfil_show_path(a.user.id) %></h4>
 				<p><%= a.descricao %></p>
 				<div class="acoes pull-right">
-					<%= image_tag('vote-sim') %>
-					<%= image_tag('vote-nao') %>
+					<%#= image_tag('vote-sim') %>
+					<%#= image_tag('vote-nao') %>
 					<%= link_to image_tag('responder'), {:remote => true}, :onclick => "responderResposta(" + a.id.to_s + ")", :class => "responder", 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Responder'  %>
 				</div>
 				<p><%#= t.subcategory.nome %></p>
@@ -35,13 +35,13 @@
 					</div>
 					<div class="col-md-10">
 						<div class="pull-right">
-							<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => aC.id, :topic_id => a.topic.id}, :method => :delete, remote: true, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
+							<%= link_to image_tag('x', :class => "img-responsive"), {:controller => :answers, :action => :destroy, :id => aC.id, :topic_id => a.topic.nil? ? nil : a.topic_id}, :method => :delete, remote: true, 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Excluir Resposta' %>
 						</div>
 						<h4><%= link_to (aC.user.nome), perfil_show_path(aC.user.id) %></h4>
 						<p><%= aC.descricao %></p>
 						<div class="acoes pull-right">
-							<%= image_tag('vote-sim') %>
-							<%= image_tag('vote-nao') %>
+							<%#= image_tag('vote-sim') %>
+							<%#= image_tag('vote-nao') %>
 							<%= link_to image_tag('responder'), {:controller => :answers, :action => :create}, remote: true, :onclick => "responderResposta(" + aC.id.to_s + ")", :class => "responder", 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Responder' %>
 						</div>
 						<p><%#= t.subcategory.nome %></p>
@@ -57,7 +57,7 @@
 			<%= an.input :user_id, as: :hidden, input_html: { value: @user.id } %>
 			<%= an.input :topic_id, as: :hidden, input_html: { value: nil } %>
 			<%= an.input :answer_id, as: :hidden, input_html: { value: a.id } %>
-			<%= an.button :submit, "RESPONDER", class: "btn btn-success bigDefaultButton col-md-5 pull-right", :controller => "answers" %>
+			<%= an.button :submit, "RESPONDER", class: "btn btn-success bigDefaultButton col-md-5 pull-right", :controller => "answers", :onclick => "responderRespostaHaHa()" %>
 		<% end %>
 	</div>
 

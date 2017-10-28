@@ -1,19 +1,23 @@
 <section id="info-about-perfil">
 	<div class="container-fluid">
 		<div class="col-md-3 perfil-categorias">
-			<h4>Score</h4>
+			<h4>Sobre</h4>
+			<p class="text-left"><%= @user.about %></p>
 		</div>
 		<div class="col-md-3 perfil-categorias">
-			<h4>Sobre</h4>
-			<p class="text-left" style="padding: 0 15px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus delectus sapiente, sit maiores assumenda expedita a! Enim sed quia magnam, pariatur est repellendus ipsum eius asperiores tempore optio, veniam cumque!
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate repudiandae velit assumenda cumque libero, laborum, tempora facilis autem, ea molestiae cum dolor rem sunt. Quia veritatis quasi neque sunt eveniet?
-			</p>
+			<h4>Projetos</h4>
+			<% @projects.each do |t| %>
+			<div class="duvidasBoxPerfil">
+				<h5 class="text-left no-margin"><b><%= link_to (t.project.titulo), show_project_dashboard_path(t.project.id) %></b></h5>
+				<p class="text-left"><%= t.project.descricao.first(20) %></p>
+			</div>
+			<% end %>
 		</div>
 		<div class="col-md-3 perfil-categorias">
 			<h4>Dúvidas</h4>
 			<% @topics.each do |t| %>
 			<div class="duvidasBoxPerfil">
-				<h5 class="text-left no-margin"><b><%= t.titulo %></b></h5>
+				<h5 class="text-left no-margin"><b><%= link_to (t.titulo), show_topic_dashboard_path(t.id) %></b></h5>
 				<p class="text-left"><%= t.descricao.first(20) %></p>
 			</div>
 			<% end %>
@@ -26,7 +30,7 @@
 					<%= image_tag(a.topic.user.avatar.url, :class => "img-responsive img-circle") %>
 				</div>
 				<div class="col-md-8 breakPaddingInput">
-					<h5 class="text-left no-margin"><b><%= a.topic.titulo %></b></h5>
+					<h5 class="text-left no-margin"><b><%= link_to (a.topic.titulo), show_topic_dashboard_path(a.topic.id) %></b></h5>
 					<p class="text-left"><%= a.descricao %></p>
 				</div>
 			</div>

@@ -13,7 +13,7 @@ class SubcategoriesController < ApplicationController
   end
 
   def getByCategoryId
-    @subcategory = Subcategory.find_by_category_id(params[:category_id])
+    @subcategory = Subcategory.where(:category_id => params[:category_id])
     render json: @subcategory
   end
 

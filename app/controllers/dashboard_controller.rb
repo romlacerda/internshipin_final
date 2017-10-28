@@ -68,7 +68,7 @@ end
 def project
 	@project = Project.find_by_id(params[:id])
 	@user = current_user
-	@submissionsCount = Submission.count('project_id')
+	@submissions = Submission.all
 	@members = Submission.where(:project_id => params[:id])
 	@answer = Answer.new
 	@answers = Answer.where(:project_id => @project.id)

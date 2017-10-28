@@ -25,7 +25,9 @@ class SubmissionsController < ApplicationController
   # POST /submissions.json
   def create
     @submission = Submission.new(submission_params)
+    @submissions = Submission.all
     @submission.save
+
   end
 
   # PATCH/PUT /submissions/1

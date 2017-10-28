@@ -19,10 +19,12 @@
 				</div>
 				<%= simple_form_for @topic, :url => dashboard_path, :method => "get" do |f| %>
 					<div class="col-md-6" style="margin-top: 10px; text-align: left;">
-						<%= f.association :category, label: 'Categoria', collection: @categories, label_method: :nome, input_html: {class: "form-control col-md-9"} %>
+						<h5 class="labelPadrao">Categoria:</h5>
+						<%= f.association :category, :label => false, :placeholder => "Todas", collection: @categories, label_method: :nome, input_html: {class: "form-control col-md-9"} %>
 					</div>
 					<div class="col-md-6" style="margin-top: 10px; text-align: left;">
-						<%= f.association :subcategory, label: 'Subcategoria', collection: @subcategories, label_method: :nome, input_html: { class: "form-control col-md-9" } %>
+						<h5 class="labelPadrao">Subcategoria:</h5>
+						<%= f.association :subcategory, :label => false, :placeholder => "Todas", collection: @subcategories, label_method: :nome, input_html: { class: "form-control col-md-9" } %>
 					</div>
 					<div class="col-md-12" style="margin-bottom: 20px; margin-top: 10px;">
 						<%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>

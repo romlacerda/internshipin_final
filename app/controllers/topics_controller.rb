@@ -31,11 +31,7 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @answers = Answer.all
-    if params[:topic]
-      @topics = Topic.search(params[:topic][:category_id], params[:topic][:subcategory_id]).order('created_at DESC')
-    else
-      @topics = Topic.all.order('created_at DESC')
-    end
+    @topics = Topic.all.order('created_at DESC')
     @user = current_user
     respond_to do |format|
       if @topic.save

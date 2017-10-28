@@ -11,15 +11,17 @@
 				<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
 				<h3 class="usuarioInfo text-center"><%= link_to (@project.user.nome), perfil_show_path(@project.user.id) %></h3>
 				<div class="text-center col-md-12 breakPaddingInput">
-					<% if @project.status.to_i == 0 %>
+					<% if @project.status == "Aberto" %>
 						<%= image_tag('aberto') %>
 					<% else %>
 						<%= image_tag('finalizado') %>
 					<% end %>
 					<% if (@project.user_id == @user.id) %>
 					<ul class="col-md-12 breakPaddingInput">
-						<li><%= link_to("Editar", edit_project_dashboard_path(@project)) %></li>
-						<li><%= link_to("Encerrar Projeto", close_project_path(@project)) %></li>
+						<% if @project.status == "Aberto" %>
+							<li><%= link_to("Editar", edit_project_dashboard_path(@project)) %></li>
+							<li><%= link_to("Encerrar Projeto", close_project_path(@project)) %></li>
+						<% end %>
 					</ul>
 					<% end %>
 				</div>
@@ -37,15 +39,26 @@
 						<p><%= @project.descricao %></p>
 					</div>
 					<div class="col-md-6 breakPaddingInput">
-						<p><b>INSCRITOS:</b> <b style="color: #d76d39;"><%= @submissionsCount %> INSCRITO (S)</b> </p>
-						<ul class="col-md-12 breakPaddingInput submissions">
-							<% @members.each do |m| %>
-								<li class="col-md-5"><%= image_tag(m.user.avatar.url, :class => "img-responsive img-circle") %></li>
+						<p><b>INSCRITOS:</b> <b style="color: #d76d39;">
+						<% i = 0 %>
+						<% @submissions.each do |a| %>
+							<% if a.project_id == @project.id %>
+								<% i += 1 %>
 							<% end %>
-						</ul>
+						<% end %>
+						<%= i %> 
+						INSCRITO (S)</b> </p>
+						
 					</div>
 					<div class="col-md-6 breakPaddingInput">
 						<p><b>LIMITE:</b> <b style="color: #d76d39;"><%= @project.max_users %> ALUNO (S)</b></p>
+					</div>
+					<div class="col-md-12 breakPaddingInput">
+						<ul class="col-md-12 breakPaddingInput submissions">
+							<% @members.each do |m| %>
+								<li class="col-md-2 breakPaddingInput" style="margin-right: -30px;"><%= image_tag(m.user.avatar.url, :class => "img-responsive img-circle", :style => "border: 2px solid #fff;", 'data-toggle' => 'tooltip', 'data-placement':'top', title: m.user.nome + " " + m.user.sobrenome) %></li>
+							<% end %>
+						</ul>
 					</div>
 					<div class="col-md-12 breakPaddingInput">
 						<b>ANEXO:</b>
@@ -96,7 +109,7 @@
 				<div class="acoes pull-right">
 					<%= image_tag('vote-sim') %>
 					<%= image_tag('vote-nao') %>
-					<%= link_to image_tag('responder'), {:remote => true}, :onclick => "responderResposta(" + a.id.to_s + ")", :class => "responder", 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Responder'  %>
+					<%= link_to image_tag('responder'), {:remote => true}, :onclick => "responderResposta(" + a.id.to_s + ")", :class => "responder", 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Responder', :onclick => "window.location.reload()"  %>
 				</div>
 				<p><%#= t.subcategory.nome %></p>
 			</div>
@@ -117,9 +130,9 @@
 						<h4><%= link_to (aC.user.nome), perfil_show_path(aC.user.id) %></h4>
 						<p><%= aC.descricao %></p>
 						<div class="acoes pull-right">
-							<%= image_tag('vote-sim') %>
-							<%= image_tag('vote-nao') %>
-							<%= link_to image_tag('responder'), {:remote => true}, :onclick => "responderResposta(" + aC.id.to_s + ")", :class => "responder", 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Responder'  %>
+							<%#= image_tag('vote-sim') %>
+							<%#= image_tag('vote-nao') %>
+							<%= link_to image_tag('responder'), {:remote => true}, :onclick => "responderResposta(" + aC.id.to_s + ")", :class => "responder", 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Responder', :onclick => "window.location.reload()"  %>
 						</div>
 						<p><%#= t.subcategory.nome %></p>
 					</div>

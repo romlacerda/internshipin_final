@@ -8,12 +8,12 @@
 			</div>
 			<div class="text pull-left col-md-9">
 				<div class="col-md-6" style="padding: 0; margin: 0;">
-					<h5 class="breakPaddingInput no-margin"><%= link_to (t.user.nome), perfil_show_path(t.user.id) %></h5>
+					<h5 class="breakPaddingInput no-margin"><%= link_to (t.user.nome + " " + t.user.sobrenome), perfil_show_path(t.user.id) %></h5>
 				</div>
 				<div class="col-md-6" style="padding: 0; margin: 0;">
 					<div class="pull-right infos">
 						<%#= link_to("Editar", edit_topic_dashboard_path(t)) %>
-						<% if t.status.to_i == 0 %>
+						<% if t.status == "Aberto" %>
 							<%= image_tag('aberto') %>
 						<% else %>
 							<%= image_tag('finalizado') %>

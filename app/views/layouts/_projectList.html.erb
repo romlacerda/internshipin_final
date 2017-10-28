@@ -4,9 +4,9 @@
 		<% @projects.each do |p| %>
 			<div class="box-projects col-md-12">
 				<div class="dataProjeto pull-left col-md-3">
-					<%= image_tag(@user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
+					<%= image_tag(p.user.avatar.url, :class => "img-circle img-responsive usuarioFotoTopic") %>
 					<p class="text-center" style="padding: 5px 0;">
-						<b style="padding: 10px 0; font-size: 1.2em;"><%= link_to (p.user.nome), perfil_show_path(p.user.id) %></b>
+						<b style="padding: 10px 0; font-size: 1.2em;"><%= link_to (p.user.nome + " " + p.user.sobrenome), perfil_show_path(p.user.id) %></b>
 					</p>
 					<div class="col-md-12">
 						<% if p.status.to_i == 0 %>
